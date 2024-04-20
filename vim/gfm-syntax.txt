@@ -1,0 +1,63 @@
+*vim-gfm-syntax*       GFM syntax extension for markdown filetype
+
+Author : rhysd <lin90162@yahoo.co.jp>
+Version : 1.0
+
+CONTENTS                *vim-gfm-syntax-contents*
+
+Introduction            |vim-gfm-syntax-introduction|
+Install                 |vim-gfm-syntax-install|
+License                 |vim-gfm-syntax-lisence|
+
+==============================================================================
+INTRODUCTION                                  *vim-gfm-syntax-introduction*
+
+*gfm-syntax* 为 GitHub Flavored Markdown 提供额外的语法突出显示。GitHub 将他们的额外功能添加到 Markdown。这个插件填补了普通 Markdown 和 GitHub Flavored Markdown 之间的空白
+
+Ref: https://help.github.com/categories/writing-on-github/
+
+此插件在“markdown”文件类型上自动启用。如需更多自定义，请参阅自述文件
+
+https://github.com/rhysd/vim-gfm-syntax#readme
+
+
+==============================================================================
+INSTALL                                            *vim-gfm-syntax-install*
+
+如果您不使用任何插件管理器，请将 after/、plugin/ 和 doc/ 中的所有文件复制到 .vim 目录
+
+如果您使用插件管理器，请按照它的说明安装 |gfm-syntax|.
+
+下面是|neobundle.vim| 的例子.
+>
+    NeoBundle 'rhysd/vim-gfm-syntax'
+<
+
+==============================================================================
+LICENSE                                            *vim-gfm-syntax-license*
+
+|gfm-syntax| is distributed under The MIT license.
+
+  Copyright (c) 2016 rhysd
+
+  Permission is hereby granted, free of charge, to any person obtaining
+  a copy of this software and associated documentation files (the
+  "Software"), to deal in the Software without restriction, including
+  without limitation the rights to use, copy, modify, merge, publish,
+  distribute, sublicense, and/or sell copies of the Software, and to
+  permit persons to whom the Software is furnished to do so, subject to
+  the following conditions:
+  The above copyright notice and this permission notice shall be
+  included in all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+  MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+  CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+  TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+  SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+==============================================================================
+vim:tw=78:colorcolumn=78:ts=8:ft=help:norl:et:fen:fdl=0:
