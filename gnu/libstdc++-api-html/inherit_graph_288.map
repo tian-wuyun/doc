@@ -1,0 +1,9 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$a06345.html" title="An allocator that uses global new, as per C++03 [20.4.1]." alt="" coords="5,67,148,104"/>
+<area shape="rect" id="Node000001" href="$a04849.html" title=" " alt="" coords="210,5,357,43"/>
+<area shape="poly" id="edge169_Node000000_Node000001" title=" " alt="" coords="156,59,217,41,219,46,157,64"/>
+<area shape="rect" id="Node000002" href="$a12097.html" title="An allocator that uses global new, as per C++03 [20.4.1]." alt="" coords="196,67,371,104"/>
+<area shape="poly" id="edge170_Node000000_Node000002" title=" " alt="" coords="163,83,195,83,195,88,163,88"/>
+<area shape="rect" id="Node000003" href="$a04849.html" title="The standard allocator, as per C++03 [20.4.1]." alt="" coords="209,128,358,152"/>
+<area shape="poly" id="edge171_Node000000_Node000003" title=" " alt="" coords="164,106,235,125,234,130,162,111"/>
+</map>

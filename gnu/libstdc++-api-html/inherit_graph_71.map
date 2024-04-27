@@ -1,0 +1,29 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$a09977.html" title="Generic __selector for embarrassingly parallel functions." alt="" coords="5,373,180,411"/>
+<area shape="rect" id="Node000001" href="$a10017.html" title="std::accumulate() selector." alt="" coords="228,5,427,43"/>
+<area shape="poly" id="edge51_Node000000_Node000001" title=" " alt="" coords="95,357,107,293,130,211,147,168,169,126,195,87,226,53,243,41,246,45,230,57,199,91,173,129,152,171,135,213,112,294,100,358"/>
+<area shape="rect" id="Node000002" href="$a10029.html" title="Selector that returns the difference between two adjacent __elements." alt="" coords="235,67,419,104"/>
+<area shape="poly" id="edge52_Node000000_Node000002" title=" " alt="" coords="99,357,114,304,139,239,176,172,199,141,226,114,244,102,246,107,230,118,203,145,180,175,144,241,119,306,104,359"/>
+<area shape="rect" id="Node000003" href="$a10013.html" title="std::count_if () selector." alt="" coords="245,128,410,165"/>
+<area shape="poly" id="edge53_Node000000_Node000003" title=" " alt="" coords="104,358,122,316,148,267,183,218,226,175,246,163,248,168,230,179,187,221,153,270,127,319,108,360"/>
+<area shape="rect" id="Node000004" href="$a10009.html" title="std::count() selector." alt="" coords="246,189,409,227"/>
+<area shape="poly" id="edge54_Node000000_Node000004" title=" " alt="" coords="112,359,159,297,191,264,227,236,248,225,251,230,229,241,194,268,163,300,116,362"/>
+<area shape="rect" id="Node000005" href="$a09989.html" title="std::fill() selector." alt="" coords="257,251,397,288"/>
+<area shape="poly" id="edge55_Node000000_Node000005" title=" " alt="" coords="128,361,174,329,227,298,256,286,258,291,229,302,176,333,131,366"/>
+<area shape="rect" id="Node000006" href="$a09981.html" title="std::for_each() selector." alt="" coords="251,312,404,349"/>
+<area shape="poly" id="edge56_Node000000_Node000006" title=" " alt="" coords="181,366,252,347,254,353,182,371"/>
+<area shape="rect" id="Node000007" href="$a09985.html" title="std::generate() selector." alt="" coords="237,373,418,411"/>
+<area shape="poly" id="edge57_Node000000_Node000007" title=" " alt="" coords="195,389,236,389,236,395,195,395"/>
+<area shape="rect" id="Node000008" href="$a10025.html" title="Selector that just returns the passed iterator." alt="" coords="241,435,414,472"/>
+<area shape="poly" id="edge58_Node000000_Node000008" title=" " alt="" coords="182,413,254,431,252,437,181,418"/>
+<area shape="rect" id="Node000009" href="$a10021.html" title="std::inner_product() selector." alt="" coords="246,496,409,547"/>
+<area shape="poly" id="edge59_Node000000_Node000009" title=" " alt="" coords="132,418,177,450,229,482,254,493,251,498,227,486,174,455,128,422"/>
+<area shape="rect" id="Node000010" href="$a10005.html" title="std::replace() selector." alt="" coords="232,571,423,608"/>
+<area shape="poly" id="edge60_Node000000_Node000010" title=" " alt="" coords="114,423,161,491,193,526,229,556,250,568,248,573,227,561,189,530,157,494,110,426"/>
+<area shape="rect" id="Node000011" href="$a10001.html" title="std::replace() selector." alt="" coords="242,632,413,669"/>
+<area shape="poly" id="edge61_Node000000_Node000011" title=" " alt="" coords="107,424,125,468,151,520,186,573,230,618,248,629,245,634,226,622,182,576,146,523,120,470,102,426"/>
+<area shape="rect" id="Node000012" href="$a09993.html" title="std::transform() __selector, one input sequence variant." alt="" coords="230,693,425,731"/>
+<area shape="poly" id="edge62_Node000000_Node000012" title=" " alt="" coords="103,425,117,481,142,549,179,619,202,651,230,679,246,691,243,695,226,683,198,655,174,622,137,551,112,482,98,427"/>
+<area shape="rect" id="Node000013" href="$a09997.html" title="std::transform() __selector, two input sequences variant." alt="" coords="230,755,425,792"/>
+<area shape="poly" id="edge63_Node000000_Node000013" title=" " alt="" coords="100,426,111,492,133,577,150,621,172,665,198,705,230,741,245,752,242,756,226,745,194,708,167,667,145,623,128,578,106,493,95,426"/>
+</map>

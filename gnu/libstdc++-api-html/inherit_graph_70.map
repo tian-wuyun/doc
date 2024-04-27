@@ -1,0 +1,11 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$a09957.html" title="Base class of all __gnu_parallel::__find_template selectors." alt="" coords="5,97,177,135"/>
+<area shape="rect" id="Node000001" href="$a09965.html" title="Test predicate on two adjacent elements." alt="" coords="239,5,418,43"/>
+<area shape="poly" id="edge47_Node000000_Node000001" title=" " alt="" coords="143,88,224,52,257,41,259,46,226,57,145,93"/>
+<area shape="rect" id="Node000002" href="$a09973.html" title="Test predicate on several elements." alt="" coords="225,67,432,104"/>
+<area shape="poly" id="edge48_Node000000_Node000002" title=" " alt="" coords="192,100,224,96,225,101,193,106"/>
+<area shape="rect" id="Node000003" href="$a09961.html" title="Test predicate on a single element, used for std::find() and std::find_if ()." alt="" coords="253,128,404,165"/>
+<area shape="poly" id="edge49_Node000000_Node000003" title=" " alt="" coords="192,126,253,134,252,140,192,132"/>
+<area shape="rect" id="Node000004" href="$a09969.html" title="Test inverted predicate on a single element." alt="" coords="235,189,422,227"/>
+<area shape="poly" id="edge50_Node000000_Node000004" title=" " alt="" coords="145,139,226,175,259,186,257,191,224,180,143,144"/>
+</map>

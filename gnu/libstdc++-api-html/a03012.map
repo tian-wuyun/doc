@@ -1,0 +1,9 @@
+<map id="std::_Optional_base&lt; _Tp, bool, bool &gt;" name="std::_Optional_base&lt; _Tp, bool, bool &gt;">
+<area shape="rect" id="Node000001" title="Class template that provides copy/move constructors of optional." alt="" coords="5,73,144,111"/>
+<area shape="rect" id="Node000002" href="$a02953.html" title=" " alt="" coords="209,5,358,43"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,65,223,41,225,46,150,70"/>
+<area shape="rect" id="Node000003" href="$a11689.html" title="Class template for optional values." alt="" coords="192,67,375,117"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="160,89,191,89,191,95,160,95"/>
+<area shape="rect" id="Node000004" href="$a02953.html" title="Class template for optional values." alt="" coords="210,141,357,165"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="149,113,193,127,234,138,232,143,191,132,147,118"/>
+</map>

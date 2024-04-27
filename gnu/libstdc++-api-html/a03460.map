@@ -1,0 +1,25 @@
+<map id="std::logic_error" name="std::logic_error">
+<area shape="rect" id="Node000001" title="One of two subclasses of exception." alt="" coords="160,244,272,268"/>
+<area shape="rect" id="Node000003" href="$a12729.html" title="Base class for exceptions." alt="" coords="320,60,479,97"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="227,229,263,169,288,136,318,107,337,96,339,100,322,111,292,139,267,172,232,231"/>
+<area shape="rect" id="Node000007" href="$a03465.html" title=" " alt="" coords="335,121,464,145"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="235,230,271,192,319,155,344,144,346,148,321,160,275,195,239,234"/>
+<area shape="rect" id="Node000008" href="$a11701.html" title="Exception class thrown when a disengaged optional object is dereferenced." alt="" coords="321,169,478,220"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="268,236,321,218,322,223,270,241"/>
+<area shape="rect" id="Node000009" href="$a02657.html" title="Exception type thrown by futures." alt="" coords="339,244,460,268"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="288,253,338,253,338,259,288,259"/>
+<area shape="rect" id="Node000010" href="$a03469.html" title=" " alt="" coords="322,292,477,316"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="280,270,352,289,350,294,278,275"/>
+<area shape="rect" id="Node000011" href="$a03473.html" title=" " alt="" coords="338,340,461,364"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="245,276,280,301,321,326,350,337,348,342,319,330,277,306,242,280"/>
+<area shape="rect" id="Node000012" href="$a03477.html" title=" " alt="" coords="336,388,463,412"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="235,280,271,328,295,353,321,374,344,385,342,390,319,378,291,357,267,331,230,283"/>
+<area shape="rect" id="Node000002" href="$a05761.html" title="Base class for all library exceptions." alt="" coords="5,244,112,268"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="127,253,160,253,160,259,127,259"/>
+<area shape="rect" id="Node000004" href="$a12733.html" title="An entry cannot be inserted into a container object for logical reasons (not, e.g...." alt="" coords="538,5,674,43"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="486,53,537,39,538,45,488,58"/>
+<area shape="rect" id="Node000005" href="$a12737.html" title="A join cannot be performed logical reasons (i.e., the ranges of the two container objects being joine..." alt="" coords="527,67,685,91"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="494,76,526,76,526,81,494,81"/>
+<area shape="rect" id="Node000006" href="$a12741.html" title="A container cannot be resized." alt="" coords="538,115,674,152"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="488,99,538,113,537,118,486,104"/>
+</map>

@@ -1,0 +1,2851 @@
+*coc-config.txt*				NodeJS client for Vim & Neovim.
+*coc-config.txt*Vim和Neovim的NodeJS客户端。
+
+CONTENTS
+内容
+
+Call hierarchy 					|coc-config-callHierarchy|
+调用层次结构|coc-config-callHierarchy|
+CodeLens 					|coc-config-codeLens|
+CodeLens|coc-config-CodeLens|
+Colors 						|coc-config-colors|
+颜色|coc配置颜色|
+Completion 					|coc-config-suggest|
+完成|coc配置建议|
+Cursors 					|coc-config-cursors|
+游标|coc-config游标|
+Diagnostics 					|coc-config-diagnostic|
+诊断|coc-config-diagnostic|
+Dialog 						|coc-config-dialog|
+对话框|coc配置对话框|
+Document highlight 				|coc-config-documentHighlight|
+文档突出显示|coc-config documentHighlight|
+Float factory 					|coc-config-floatFactory|
+浮动工厂|coc-config-foatFactory|
+Hover 						|coc-config-hover|
+悬停|coc配置悬停|
+Http 						|coc-config-http|
+Http|coc-config Http|
+Inlay hint 					|coc-config-inlayHint|
+内嵌提示|coc-config-inlayHint|
+Links 						|coc-config-links|
+链接|coc-config链接|
+List 						|coc-config-list|
+列表|coc配置列表|
+Notification 					|coc-config-notification|
+通知|coc-config通知|
+Npm 						|coc-config-npm|
+Npm|coc-config-Npm|
+Outline 					|coc-config-outline|
+大纲|coc-config大纲|
+Pull diagnostics 				|coc-config-pullDiagnostic|
+Pull诊断|coc-config-pullDiagnostic|
+Refactor 					|coc-config-refactor|
+重构器|组件配置重构器|
+Semantic tokens 				|coc-config-semanticTokens|
+语义标记|coc-config semanticTokens|
+Signature 					|coc-config-signature|
+签名|coc-config签名|
+Tree 						|coc-config-tree|
+树|coc-config-Tree|
+Type hierarchy					|coc-config-typeHierarchy|
+类型层次结构|coc-config-typeHierarchy|
+Workspace 					|coc-config-workspace|
+工作区|coc-config工作区|
+Preferences 					|coc-config-preferences|
+首选项| coc配置首选项|
+Float 						|coc-config-float|
+浮点| coc配置浮点|
+Language server 				|coc-config-languageserver|
+语言服务器|coc-config语言服务器|
+
+==============================================================================
+==============================================================================
+BUILTIN CONFIGURATIONS 					*coc-config*
+内置配置*coc配置*
+
+Builtin configurations of coc.nvim, it's recommended to use `coc-json`
+在coc.nvim的内置配置中，建议使用`coc-json`
+extension for completion and validation support.
+完成和验证支持的扩展。
+
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+CallHierarchy~
+调用层次结构~
+*coc-config-callHierarchy*
+*coc-config-callHierarchy*
+"callHierarchy.enableTooltip"				*coc-config-callHierarchy-enableTooltip*
+“callHierarchy.enableTooltip”*coc-config callHierachy.enableTooltip*
+
+Enable tooltip to show relative filepath of call hierarchy item.
+启用工具提示以显示调用层次结构项的相对文件路径。
+
+Scope: `application`, default: `true`
+作用域：`application`，默认值：`true`
+
+"callHierarchy.openCommand"				*coc-config-callHierarchy-openCommand*
+“callHierarchy.openCommand”*coc-config callHierachy.openCommand*
+
+Open command for call hierarchy tree view.
+打开调用层次结构树视图的命令。
+
+Scope: `application`, default: `"edit"`
+作用域：`application`，默认值：`edit`
+
+"callHierarchy.splitCommand"				*coc-config-callHierarchy-splitCommand*
+“callHierarchy.splitCommand”*coc-config callHierachy splitCommand*
+
+Window split command used by call hierarchy tree view.
+调用层次结构树视图使用的窗口拆分命令。
+
+Scope: `application`, default: `"botright 30vs"`
+作用域：`application`，默认值：`“botright 30vs”`
+
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+CodeLens~
+CodeLens~
+*coc-config-codeLens*
+*coc-config-codeLens*
+"codeLens.enable"					*coc-config-codeLens-enable*
+“codeLens.enable”*coc-config-codeLens enable*
+
+Enable codeLens feature, require neovim with set virtual text feature.
+启用codeLens功能，需要neovim设置虚拟文本功能。
+
+Scope: `language-overridable`, default: `false`
+作用域：“语言可重写”，默认值：“false”`
+
+"codeLens.position"					*coc-config-codeLens-position*
+“codeLens.position”*coc-config codeLens position*
+
+Position of codeLens, requires nvim >= 0.6.0.
+codeLens的位置，需要nvim>=0.6.0。
+
+Scope: `resource`, default: `"top"`
+作用域：`resource`，默认值：`“top”`
+
+"codeLens.separator"					*coc-config-codeLens-separator*
+“codeLens.separator”*coc-config codeLens separator*
+
+Separator text for codeLens in virtual text.
+虚拟文本中codeLens的分隔符文本。
+
+Scope: `resource`, default: `""`
+作用域：`resource`，默认值：`“”`
+
+"codeLens.subseparator"					*coc-config-codeLens-subseparator*
+“codeLens.subsparator”*coc-config codeLens subsparator*
+
+Subseparator between codeLenses in virtual text.
+虚拟文本中代码透镜之间的子分隔符。
+
+Scope: `resource`, default: `" | "`
+作用域：`resource`，默认值：`“|”`
+
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+Colors~
+颜色~
+*coc-config-colors*
+*coc配置颜色*
+"colors.enable"						*coc-config-colors-enable*
+“colors.enable”*coc-config-colors-enable*
+
+Enable colors highlight feature, for terminal vim, 'termguicolors'
+启用颜色高亮显示功能，用于终端vim，“termguicolors”
+option should be enabled and the terminal support gui colors.
+选项，并且终端支持gui颜色。
+
+Scope: `language-overridable`, default: `false`
+作用域：“语言可重写”，默认值：“false”`
+
+"colors.highlightPriority"				*coc-config-colors-highlightPriority*
+“colors.highlightPriority”*coc-config colors highlightPriority*
+
+Priority for colors highlights, works on vim8 and neovim >= 0.6.0.
+颜色高亮的优先级，适用于vim8和neovim>=0.6.0。
+
+Scope: `application`, default: `1000`
+作用域：`application`，默认值：`1000`
+
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+Cursors~
+光标~
+*coc-config-cursors*
+*coc配置游标*
+"cursors.cancelKey"					*coc-config-cursors-cancelKey*
+“cursors.cancelKey”*coc-config cursors-cancelKey*
+
+Key used for cancel cursors session.
+用于取消游标会话的键。
+
+Scope: `application`, default: `"<esc>"`
+作用域：`application`，默认值：`“<esc>”`
+
+"cursors.nextKey"					*coc-config-cursors-nextKey*
+“cursors.nextKey”*coc-config cursors nextKey*
+
+Key used for jump to next cursors position.
+用于跳转到下一个光标位置的键。
+
+Scope: `application`, default: `"<C-n>"`
+作用域：`application`，默认值：`“<C-n>”`
+
+"cursors.previousKey"					*coc-config-cursors-previousKey*
+“cursors.previousKey”*coc-config cursors previousKey*
+
+Key used for jump to previous cursors position.
+用于跳转到上一个光标位置的键。
+
+Scope: `application`, default: `"<C-p>"`
+作用域：`application`，默认值：`“<C-p>”`
+
+"cursors.wrapscan"					*coc-config-cursors-wrapscan*
+“cursors.wrapscan”*coc-config cursors wrapscan*
+
+Searches wrap around the first or last cursors range.
+搜索环绕第一个或最后一个光标范围。
+
+Scope: `application`, default: `true`
+作用域：`application`，默认值：`true`
+
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+Diagnostic~
+Diagnostic~
+*coc-config-diagnostic*
+*coc配置诊断*
+"diagnostic.autoRefresh"				*coc-config-diagnostic-autoRefresh*
+“diagnostic.autoRefresh”*coc-config diagnostic autoRefresh*
+
+Enable automatically refresh diagnostics, use diagnosticRefresh action
+启用自动刷新诊断，使用诊断刷新操作
+when it's disabled.
+当它被禁用时。
+
+Scope: `language-overridable`, default: `true`
+作用域：“语言可重写”，默认值：“true”`
+
+"diagnostic.checkCurrentLine"				*coc-config-diagnostic-checkCurrentLine*
+“diagnostic.checkCurrentLine”*coc-config diagnostic-checkCurrentLine*
+
+When enabled, show all diagnostics of current line if there are none at 
+启用时，显示当前线路的所有诊断（如果没有）
+the current position.
+当前位置。
+
+Scope: `language-overridable`, default: `false`
+作用域：“语言可重写”，默认值：“false”`
+
+"diagnostic.displayByAle"				*coc-config-diagnostic-displayByAle*
+“diagnostic.displayByAle”*coc-config diagnostic-displayBy阿莱*
+
+Use Ale for display diagnostics in vim, will disable coc for display 
+在vim中使用Ale进行显示诊断，将禁用coc进行显示
+diagnostics, restart required on change.
+诊断，更改时需要重新启动。
+
+Scope: `language-overridable`, default: `false`
+作用域：“语言可重写”，默认值：“false”`
+
+"diagnostic.enable"					*coc-config-diagnostic-enable*
+“diagnostic.enable”*coc-config-diagnostic enable*
+
+Set to false to disable diagnostic display.
+设置为false可禁用诊断显示。
+
+Scope: `language-overridable`, default: `true`
+作用域：“语言可重写”，默认值：“true”`
+
+"diagnostic.enableHighlightLineNumber"			*coc-config-diagnostic-enableHighlightLineNumber*
+“diagnostic.enableHighlightLineNumber”*coc-config diagnostic enableHighlightLineNumber*
+
+Enable highlighting line numbers for diagnostics, only works with neovim.
+启用高亮显示行号进行诊断，仅适用于neovim。
+
+Scope: `application`, default: `true`
+作用域：`application`，默认值：`true`
+
+"diagnostic.enableMessage"				*coc-config-diagnostic-enableMessage*
+“diagnostic.enableMessage”*coc-config diagnostic enableMessage*
+
+When to enable show messages of diagnostics.
+何时启用显示诊断消息。
+
+Scope: `application`, default: `"always"`
+作用域：`application`，默认值：`“始终”`
+
+"diagnostic.enableSign"					*coc-config-diagnostic-enableSign*
+“diagnostic.enableSign”*coc-config diagnostic enableSign*
+
+Enable signs for diagnostics.
+启用诊断标志。
+
+Scope: `language-overridable`, default: `true`
+作用域：“语言可重写”，默认值：“true”`
+
+"diagnostic.errorSign"					*coc-config-diagnostic-errorSign*
+“diagnostic.errorSign”*coc-config diagnostic errorSign*
+
+Text of error sign.
+错误标志的文本。
+
+Scope: `application`, default: `">>"`
+作用域：`application`，默认值：`“>>”`
+
+"diagnostic.filetypeMap"				*coc-config-diagnostic-filetypeMap*
+“diagnostic.filetypeMap”*coc-config diagnostic filetypeMap*
+
+A map between buffer filetype and the filetype assigned to diagnostics.
+缓冲区文件类型和分配给诊断的文件类型之间的映射。
+To syntax highlight diagnostics with their parent buffer type use `"
+要使用父缓冲区类型语法突出显示诊断，请使用“”
+default": "bufferType"`.
+default”：“bufferType”`。
+
+Scope: `application`, default: `{}`
+作用域：`application`，默认值：`{}`
+
+"diagnostic.floatConfig"				*coc-config-diagnostic-floatConfig*
+“diagnostic.foatConfig”*coc-config diagnostic floatConfig*
+
+Configuration of floating window/popup for diagnostic messages, see
+诊断消息的浮动窗口/弹出窗口配置，请参阅
+|coc-config-float|.
+|coc-config-foat|。
+
+Scope: `application`, default: `null`
+作用域：`application`，默认值：`null`
+
+"diagnostic.format"					*coc-config-diagnostic-format*
+“diagnostic.format”*coc-config诊断格式*
+
+Define the diagnostic format that shown in float window or echoed,
+定义浮动窗口中显示的或回声的诊断格式，
+available parts: source, code, severity, message.
+可用部分：源代码、严重性、消息。
+
+Scope: `language-overridable`, default: `"%message (%source%code)"`
+作用域：`语言可重写'，默认值：`“%message（%source%code）”`
+
+"diagnostic.highlightLimit"				*coc-config-diagnostic-highlightLimit*
+“diagnostic.highlightLimit”*coc-config diagnostic highlightLimit*
+
+Limit count for highlighted diagnostics, too many diagnostic highlights
+突出显示诊断的限制计数，过多的诊断突出显示
+could make vim stop responding.
+可能会使vim停止反应。
+
+Scope: `language-overridable`, default: `1000`
+作用域：“语言可重写”，默认值：“1000”`
+
+"diagnostic.highlightPriority"				*coc-config-diagnostic-highlightPriority*
+“diagnostic.highlightPriority”*coc-config diagnostic highlightPriority*
+
+Priority for diagnostic highlights, works on vim8 and neovim >= 0.6.0.
+诊断亮点的优先级，适用于vim8和neovim>=0.6.0。
+
+Scope: `language-overridable`, default: `4096`
+作用域：`语言可重写'，默认值：`4096`
+
+"diagnostic.hintSign"					*coc-config-diagnostic-hintSign*
+“diagnostic.hintSign”*coc-config diagnostic-hintSign*
+
+Text of hint sign.
+提示符号的文本。
+
+Scope: `application`, default: `">>"`
+作用域：`application`，默认值：`“>>”`
+
+"diagnostic.infoSign"					*coc-config-diagnostic-infoSign*
+“diagnostic.infoSign”*coc-config diagnostic infoSign*
+
+Text of info sign.
+信息标志的文本。
+
+Scope: `application`, default: `">>"`
+作用域：`application`，默认值：`“>>”`
+
+"diagnostic.level"					*coc-config-diagnostic-level*
+“diagnostic.level”*coc-config诊断级别*
+
+Used for filter diagnostics by diagnostic severity.
+用于按诊断严重程度进行筛选诊断。
+
+Scope: `resource`, default: `"hint"`
+作用域：`resource`，默认值：`“hint”`
+
+"diagnostic.locationlistLevel"				*coc-config-diagnostic-locationlistLevel*
+“diagnostic.locationlistLevel”*coc-config diagnostic locationlistLevel*
+
+Filter diagnostics in locationlist.
+在位置列表中筛选诊断。
+
+Scope: `language-overridable`, default: `null`
+作用域：“语言可重写”，默认值：“null”`
+
+"diagnostic.locationlistUpdate"				*coc-config-diagnostic-locationlistUpdate*
+“diagnostic.locationlistUpdate”*coc-config diagnostic locationlistUpdate*
+
+Update locationlist on diagnostics change, only works with locationlist
+在诊断更改时更新位置列表，仅适用于位置列表
+opened by :CocDiagnostics command and first window of associated buffer.
+打开者：CocDiagnostics命令和相关缓冲区的第一个窗口。
+
+Scope: `language-overridable`, default: `true`
+作用域：“语言可重写”，默认值：“true”`
+
+"diagnostic.messageDelay"				*coc-config-diagnostic-messageDelay*
+“diagnostic.messageDelay”*coc-config diagnostic messageDelay*
+
+How long to wait (in milliseconds) before displaying the diagnostic
+显示诊断之前等待多长时间（以毫秒为单位）
+message with echo or float
+带有回声或浮动的消息
+
+Scope: `application`, default: `200`
+作用域：`application`，默认值：`200`
+
+"diagnostic.messageLevel"				*coc-config-diagnostic-messageLevel*
+“diagnostic.messageLevel”*coc-config diagnostic messageLevel*
+
+Filter diagnostic message in float window/popup.
+在浮动窗口/弹出窗口中过滤诊断消息。
+
+Scope: `language-overridable`, default: `null`
+作用域：“语言可重写”，默认值：“null”`
+
+"diagnostic.messageTarget"				*coc-config-diagnostic-messageTarget*
+“diagnostic.messageTarget”*coc-config diagnostic messageTarget*
+
+Diagnostic message target.
+诊断消息目标。
+
+Scope: `language-overridable`, default: `"float"`
+作用域：`语言可重写'，默认值：`“float”`
+
+"diagnostic.refreshOnInsertMode"			*coc-config-diagnostic-refreshOnInsertMode*
+“diagnostic.refreshOnInsertMode”*coc-config diagnostic refreshOnInsertMode*
+
+Enable diagnostic refresh on insert mode, default false.
+在插入模式下启用诊断刷新，默认为false。
+
+Scope: `language-overridable`, default: `false`
+作用域：“语言可重写”，默认值：“false”`
+
+"diagnostic.separateRelatedInformationAsDiagnostics"	*coc-config-diagnostic-separateRelatedInformationAsDiagnostics*
+“diagnostic.sseparateRelatedInformation AsDiagnostics”*coc-config diagnostic separateelatedInformation Asdiagnostics*
+
+Separate related information as diagnostics.
+将相关信息分离为诊断信息。
+
+Scope: `application`, default: `false`
+作用域：`application`，默认值：`false`
+
+"diagnostic.showDeprecated"				*coc-config-diagnostic-showDeprecated*
+“diagnostic.showDeprecated”*coc-config diagnostic showDeprecated*
+
+Show diagnostics with deprecated tag.
+显示带有不推荐使用的标记的诊断。
+
+Scope: `language-overridable`, default: `true`
+作用域：“语言可重写”，默认值：“true”`
+
+"diagnostic.showUnused"					*coc-config-diagnostic-showUnused*
+“diagnostic.showUnused”*coc-config diagnostic showUnused*
+
+Show diagnostics with unused tag, affects highlight, sign, virtual
+显示带有未使用标记的诊断，影响高亮显示、签名、虚拟
+text , message.
+短信
+
+Scope: `language-overridable`, default: `true`
+作用域：“语言可重写”，默认值：“true”`
+
+"diagnostic.signLevel"					*coc-config-diagnostic-signLevel*
+“diagnostic.signLevel”*coc-config diagnostic signLevel*
+
+Filter diagnostics displayed in signcolumn.
+显示在标志栏中的筛选诊断。
+
+Scope: `language-overridable`, default: `null`
+作用域：“语言可重写”，默认值：“null”`
+
+"diagnostic.signPriority"				*coc-config-diagnostic-signPriority*
+“diagnostic.signPriority”*coc-config diagnostic signPriority*
+
+Priority of diagnostic signs.
+诊断信号的优先级。
+
+Scope: `resource`, default: `10`
+作用域：`resource`，默认值：`10`
+
+"diagnostic.virtualText"				*coc-config-diagnostic-virtualText*
+“diagnostic.virtualText”*coc-config diagnostic virtualText*
+
+Use virtual text to display diagnostics, requires neovim >= 0.5.0 or
+使用虚拟文本显示诊断，需要neovim>=0.5.0或
+vim >= 9.0.0067.
+vim>=9.0067。
+
+Scope: `language-overridable`, default: `false`
+作用域：“语言可重写”，默认值：“false”`
+
+"diagnostic.virtualTextAlign"				*coc-config-diagnostic-virtualTextAlign*
+“diagnostic.virtualTextAlign”*coc-config diagnostic virtualTextAlign*
+
+Position of virtual text. Vim9 only.
+虚拟文本的位置。仅Vim9。
+
+Scope: `language-overridable`, default: `"after"`
+作用域：“语言可重写”，默认值：“之后”`
+
+"diagnostic.virtualTextCurrentLineOnly"			*coc-config-diagnostic-virtualTextCurrentLineOnly*
+“diagnostic.virtualTextCurrentLineOnly”*coc-config diagnostic-virtualTextCurrentLineOnly*
+
+Only show virtualText diagnostic on current cursor line.
+仅在当前光标行上显示virtualText诊断。
+
+Scope: `language-overridable`, default: `true`
+作用域：“语言可重写”，默认值：“true”`
+
+"diagnostic.virtualTextFormat"				*coc-config-diagnostic-virtualTextFormat*
+“diagnostic.virtualTextFormat”*coc-config diagnostic virtualTextFormat*
+
+Define the virtual text diagnostic format, available parts: source, code
+定义虚拟文本诊断格式，可用部分：源代码
+, severity, message.
+，严重性，消息。
+
+Scope: `language-overridable`, default: `"%message"`
+作用域：`语言可重写'，默认值：`“%message”`
+
+"diagnostic.virtualTextLevel"				*coc-config-diagnostic-virtualTextLevel*
+“diagnostic.virtualTextLevel”*coc-config diagnostic virtualTextLevel*
+
+Filter diagnostic message in virtual text by level.
+按级别筛选虚拟文本中的诊断消息。
+
+Scope: `language-overridable`, default: `null`
+作用域：“语言可重写”，默认值：“null”`
+
+"diagnostic.virtualTextLimitInOneLine"			*coc-config-diagnostic-virtualTextLimitInOneLine*
+“diagnostic.virtualTextLimitInOneLine”*coc-config diagnostic virtualTextLimitInOneLine*
+
+The maximum number of diagnostic messages to disaply in one line.
+一行中要停用的诊断消息的最大数量。
+
+Scope: `language-overridable`, default: `999`
+作用域：“语言可重写”，默认值：“999”`
+
+"diagnostic.virtualTextLineSeparator"			*coc-config-diagnostic-virtualTextLineSeparator*
+“diagnostic.virtualTextLineSeparator”*coc-config diagnostic-virtualtextLineSeparater*
+
+The text that will mark a line end from the diagnostic message.
+将标记诊断消息的行结束的文本。
+
+Scope: `language-overridable`, default: `" \ "`
+作用域：`语言可重写'，默认值：`“\”`
+
+"diagnostic.virtualTextLines"				*coc-config-diagnostic-virtualTextLines*
+“diagnostic.virtualTextLines”*coc-config diagnostic virtualTextLines*
+
+The number of non empty lines from a diagnostic to display.
+从诊断到显示的非空行数。
+
+Scope: `language-overridable`, default: `3`
+作用域：`语言可重写'，默认值：`3`
+
+"diagnostic.virtualTextPrefix"				*coc-config-diagnostic-virtualTextPrefix*
+“diagnostic.virtualTextPrefix”*coc-config diagnostic virtualTextPrefix*
+
+The prefix added virtual text diagnostics.
+前缀添加了虚拟文本诊断。
+
+Scope: `language-overridable`, default: `" "`
+作用域：`语言可重写'，默认值：`“”`
+
+"diagnostic.virtualTextWinCol"				*coc-config-diagnostic-virtualTextWinCol*
+“diagnostic.virtualTextWinCol”*coc-config diagnostic virtualTextWinCol*
+
+Window column number to align virtual text, neovim only.
+用于对齐虚拟文本的窗口列编号，仅限neovim。
+
+Scope: `language-overridable`, default: `null`
+作用域：“语言可重写”，默认值：“null”`
+
+"diagnostic.warningSign"				*coc-config-diagnostic-warningSign*
+“diagnostic.warningSign”*coc-config diagnostic warningSign*
+
+Text of warning sign.
+警告标志文字。
+
+Scope: `application`, default: `"⚠"`
+作用域：`application`，默认值：`“⚠"`
+
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+Dialog~
+对话
+*coc-config-dialog*
+*coc配置对话框*
+"dialog.confirmKey"					*coc-config-dialog-confirmKey*
+“dialog.confirmKey”*coc config dialog confirmKey*
+
+Confirm key for confirm selection used by menu and picker, you can
+菜单和选择器使用的确认选择的确认键，您可以
+always use <esc> to cancel.
+始终使用<esc>取消。
+
+Scope: `application`, default: `"<cr>"`
+作用域：`application`，默认值：`“<cr>”`
+
+"dialog.floatBorderHighlight"				*coc-config-dialog-floatBorderHighlight*
+“dialog.foatBorderHighlight”*coc-config dialog floatBorderHighright*
+
+Highlight group for border of dialog window/popup, use 'CocFloating'
+突出显示对话框窗口/弹出窗口的边框组，使用“CocFloating”
+when not specified.
+当未指定时。
+
+Scope: `application`, default: `null`
+作用域：`application`，默认值：`null`
+
+"dialog.floatHighlight"					*coc-config-dialog-floatHighlight*
+“dialog.foatHighlight”*coc-config dialog floatHighlight*
+
+Highlight group for dialog window/popup, use 'CocFloating' when not
+突出显示对话框窗口/弹出窗口的组，不突出显示时使用“CocFloating”
+specified.
+明确规定。
+
+Scope: `application`, default: `null`
+作用域：`application`，默认值：`null`
+
+"dialog.maxHeight"					*coc-config-dialog-maxHeight*
+“dialog.maxHeight”*coc-config dialog maxHeight*
+
+Maximum height of dialog window, for quickpick, it's content window's
+对话框窗口的最大高度，对于快速拾取，它是内容窗口的
+height.
+身高
+
+Scope: `application`, default: `30`
+作用域：`application`，默认值：`30`
+
+"dialog.maxWidth"					*coc-config-dialog-maxWidth*
+“dialog.maxWidth”*coc-config dialog maxWidth*
+
+Maximum width of dialog window.
+对话框窗口的最大宽度。
+
+Scope: `application`, default: `80`
+作用域：`application`，默认值：`80`
+
+"dialog.pickerButtonShortcut"				*coc-config-dialog-pickerButtonShortcut*
+“dialog.pickerButtonShortcut”*coc-config dialog-pickerButton Shortcut*
+
+Show shortcut in buttons of picker dialog window/popup, used when dialog
+在选择器对话框窗口/弹出窗口的按钮中显示快捷方式，用于对话框
+.pickerButtons is true.
+.pickerButtons为true。
+
+Scope: `application`, default: `true`
+作用域：`application`，默认值：`true`
+
+"dialog.pickerButtons"					*coc-config-dialog-pickerButtons*
+“dialog.pickerButtons”*coc配置对话框pickerButtons*
+
+Show buttons for picker dialog window/popup.
+显示选择器对话框窗口/弹出窗口的按钮。
+
+Scope: `application`, default: `true`
+作用域：`application`，默认值：`true`
+
+"dialog.rounded"					*coc-config-dialog-rounded*
+“dialog.founded”*coc-config dialog-founded*
+
+use rounded border for dialog window.
+对话框窗口使用圆角边框。
+
+Scope: `application`, default: `true`
+作用域：`application`，默认值：`true`
+
+"dialog.shortcutHighlight"				*coc-config-dialog-shortcutHighlight*
+“dialog.shortcutHighlight”*coc config dialog shortcutHighright*
+
+Highlight group for shortcut character in menu dialog.
+高亮显示菜单对话框中快捷字符的组。
+
+Scope: `application`, default: `"MoreMsg"`
+作用域：`application`，默认值：`“MoreMsg”`
+
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+DocumentHighlight~
+文档突出显示~
+*coc-config-documentHighlight*
+*coc配置文档突出显示*
+"documentHighlight.priority"				*coc-config-documentHighlight-priority*
+“documentHighlight.prority”*coc-config documentHighlight priority*
+
+Match priority used by document highlight, see ':h matchadd'.
+匹配文档高亮显示使用的优先级，请参阅“：h matchadd”。
+
+Scope: `resource`, default: `-1`
+作用域：`resource`，默认值：`-1`
+
+"documentHighlight.limit"				*coc-config-documentHighlight-limit*
+“documentHighlight.limit”*coc-config documentHighlight-limit*
+
+Limit the highlights added by matchaddpos, too many positions could
+限制matchaddpos添加的高光，过多的位置可能
+cause vim slow.
+导致vim缓慢。
+
+Scope: `resource`, default: `100`
+作用域：`resource`，默认值：`100`
+
+"documentHighlight.timeout"				*coc-config-documentHighlight-timeout*
+“documentHighlight.timeout”*coc-config documentHighlight timeout*
+
+Timeout for document highlight, in milliseconds.
+文档高亮显示的超时时间（以毫秒为单位）。
+
+Scope: `resource`, default: `300`
+作用域：`resource`，默认值：`300`
+
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+FloatFactory~
+Float工厂~
+*coc-config-floatFactory*
+*coc-config-foatFactory*
+"floatFactory.floatConfig"				*coc-config-floatFactory-floatConfig*
+“floatFactory.floatConfig”*coc-config floatFactory floatConfig*
+
+Configure default float window/popup style created by float factory
+配置浮动工厂创建的默认浮动窗口/弹出样式
+(created around cursor and automatically closed), properties of
+（围绕光标创建并自动关闭），的属性
+|coc-config-float| are used.
+|使用了coc-config-foat|。
+
+Scope: `application`, default: `null`
+作用域：`application`，默认值：`null`
+
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+Hover~
+悬停
+*coc-config-hover*
+*coc配置悬停*
+"hover.autoHide"					*coc-config-hover-autoHide*
+“hover.autoHide”*coc-config hover-autoHide*
+
+Automatically hide hover float window on CursorMove or InsertEnter.
+在CursorMove或InsertEnter上自动隐藏悬停浮动窗口。
+
+Scope: `application`, default: `true`
+作用域：`application`，默认值：`true`
+
+"hover.floatConfig"					*coc-config-hover-floatConfig*
+“hover.foatConfig”*coc-config hover-foatConfig*
+
+Configuration of floating window/popup for hover documents, see
+配置悬停文档的浮动窗口/弹出窗口，请参阅
+|coc-config-float|.
+|coc-config-foat|。
+
+Scope: `application`, default: `null`
+作用域：`application`，默认值：`null`
+
+"hover.previewMaxHeight"				*coc-config-hover-previewMaxHeight*
+“hover.previewMaxHeight”*coc-config hover-previewMaxHeight*
+
+Max height of preview window for hover.
+悬停预览窗口的最大高度。
+
+Scope: `resource`, default: `12`
+作用域：`resource`，默认值：`12`
+
+"hover.target"						*coc-config-hover-target*
+“hover.target”*coc-config hover-target*
+
+Target to show hover information, could be `float`, `echo` or
+显示悬停信息的目标，可以是“float”、“echo”或
+`preview`.
+预览
+
+Scope: `resource`, default: `float`
+作用域：`resource`，默认值：`float`
+
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+Http proxy~
+Http代理~
+*coc-config-http*
+*coc配置http*
+"http.proxy"						*coc-config-http-proxy*
+“http.proxy”*coc-config http proxy*
+
+The proxy setting to use. If not set, will be inherited from the `
+要使用的代理设置。如果未设置，将从继承`
+http_proxy` and `https_proxy` environment variables.
+http_proxy`和https_proxy`环境变量。
+
+Scope: `application`, default: `""`
+作用域：`application`，默认值：`“”`
+
+"http.proxyAuthorization"				*coc-config-http-proxyAuthorization*
+“http.proxyAuthorization”*coc-config http proxyAuthorization*
+
+The value to send as the `Proxy-Authorization` header for every network
+作为每个网络的“代理授权”标头发送的值
+request.
+要求
+
+Scope: `application`, default: `null`
+作用域：`application`，默认值：`null`
+
+"http.proxyCA"						*coc-config-http-proxyCA*
+“http.proxyCA”*coc-config http proxyCA*
+
+CA (file) to use as Certificate Authority>
+要用作证书颁发机构的CA（文件）>
+
+Scope: `application`, default: `null`
+作用域：`application`，默认值：`null`
+
+"http.proxyStrictSSL"					*coc-config-http-proxyStrictSSL*
+“http.proxyStrictSSL”*coc-config http proxyStrectSSL*
+
+Controls whether the proxy server certificate should be verified
+控制是否应验证代理服务器证书
+against the list of supplied CAs.
+对照所提供的CA的列表。
+
+Scope: `application`, default: `true`
+作用域：`application`，默认值：`true`
+
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+InlayHint~
+InlayHint~
+*coc-config-inlayHint*
+*coc配置嵌入提示*
+"inlayHint.enable"					*coc-config-inlayHint-enable*
+“inlayHint.enable”*coc-config-inlayHint-enable*
+
+Enable inlay hint support.
+启用嵌入提示支持。
+
+Scope: `language-overridable`, default: `true`
+作用域：“语言可重写”，默认值：“true”`
+
+"inlayHint.enableParameter"				*coc-config-inlayHint-enableParameter*
+“inlayHint.enableParameter”*coc-config-inlayHint.enableParameters*
+
+Enable inlay hints for parameters.
+启用参数的嵌入提示。
+
+Scope: `language-overridable`, default: `true`
+作用域：“语言可重写”，默认值：“true”`
+
+"inlayHint.display"					*coc-config-inlayHint-display*
+“inlayHint.display”*coc-config-inlayHint.display*
+
+Display inlay hints. Toggle with :CocCommand document.toggleInlayHint
+显示镶嵌提示。切换方式：CocCommand document.toggleInlayHint
+
+Scope: `language-overridable`, default: `true`
+作用域：“语言可重写”，默认值：“true”`
+
+"inlayHint.refreshOnInsertMode"				*coc-config-inlayHint-refreshOnInsertMode*
+“inlayHint.refreshOnInsertMode”*coc-config-inlayHint refreshOnInsertMode*
+
+Refresh inlayHints on insert mode.
+刷新嵌件插入模式提示。
+
+Scope: `language-overridable`, default: `false`
+作用域：“语言可重写”，默认值：“false”`
+
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+Links~
+链接~
+*coc-config-links*
+*coc配置链接*
+"links.enable" 						*coc-config-links-enable*
+“links.enable”*coc-config-links enable*
+
+Enable document links.
+启用文档链接。
+
+Scope: `language-overridable`, default: `true`
+作用域：“语言可重写”，默认值：“true”`
+
+"links.highlight"					*coc-config-links-highlight*
+“links.highlight”*coc-config-links highlight*
+
+Use CocLink highlight group to highlight links.
+使用CocLink高亮显示组高亮显示链接。
+
+Scope: `application`, default: `false`
+作用域：`application`，默认值：`false`
+
+"links.tooltip"						*coc-config-links-tooltip*
+“links.tooltip”*coc-config-links tooltip*
+
+Show tooltip of link under cursor on CursorHold.
+在CursorHold上的光标下显示链接的工具提示。
+
+Scope: `application`, default: `false`
+作用域：`application`，默认值：`false`
+
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+List~
+列表
+*coc-config-list*
+*coc配置列表*
+"list.alignColumns"					*coc-config-list-alignColumns*
+“list.alignColumns”*coc-config list alignColumns*
+
+Whether to align lists in columns.
+是否对齐列中的列表。
+
+Scope: `application`, default: `false`
+作用域：`application`，默认值：`false`
+
+"list.extendedSearchMode"				*coc-config-list-extendedSearchMode*
+“list.extendedSearchMode”*coc-config list extendedSearchMode*
+
+Enable extended search mode which allows multiple search patterns
+启用允许多种搜索模式的扩展搜索模式
+delimited by spaces.
+由空格分隔。
+
+Scope: `application`, default: `true`
+作用域：`application`，默认值：`true`
+
+"list.floatPreview" 					*coc-config-list-floatPreview*
+“list.foatPreview”*coc-config-list floatPreview*
+
+Enable preview with float window/popup, default: `false`.
+使用浮动窗口/弹出窗口启用预览，默认值：“false”。
+
+Scope: `application`, default: `false`
+作用域：`application`，默认值：`false`
+
+"list.height"						*coc-config-list-height*
+“list.height”*coc-config-list-height*
+
+Height of split list window.
+拆分列表窗口的高度。
+
+Scope: `application`, default: `10`
+作用域：`application`，默认值：`10`
+
+"list.indicator"					*coc-config-list-indicator*
+“list.indicator”*coc-config-list-indicator*
+
+The character used as first character in prompt line.
+用作提示行中第一个字符的字符。
+
+Scope: `application`, default: `">"`
+作用域：`application`，默认值：`“>”`
+
+"list.insertMappings"					*coc-config-list-insertMappings*
+“list.interMappings”*coc-config-list insertMappings*
+
+Custom keymappings on insert mode.
+插入模式下的自定义键映射。
+
+Scope: `application`, default: `{}`
+作用域：`application`，默认值：`{}`
+
+"list.interactiveDebounceTime"				*coc-config-list-interactiveDebounceTime*
+“list.interactiveDebounceTime”*coc-config-list interactiveDebounce Time*
+
+Debounce time for input change on interactive mode.
+交互式模式下输入更改的取消抖动时间。
+
+Scope: `application`, default: `100`
+作用域：`application`，默认值：`100`
+
+"list.limitLines"					*coc-config-list-limitLines*
+“list.limitLines”*coc-config-list-limitLines*
+
+Limit lines for list buffer.
+限制列表缓冲区的行数。
+
+Scope: `application`, default: `null`
+作用域：`application`，默认值：`null`
+
+"list.maxPreviewHeight"					*coc-config-list-maxPreviewHeight*
+“list.maxPreviewHeight”*coc-config-list maxPreviewHeith*
+
+Max height for preview window of list.
+列表的预览窗口的最大高度。
+
+Scope: `application`, default: `12`
+作用域：`application`，默认值：`12`
+
+"list.menuAction"					*coc-config-list-menuAction*
+“list.menuAction”*coc config list menuAction*
+
+Use menu picker instead of confirm() for choose action.
+使用菜单选择器而不是confirm（）进行选择操作。
+
+Scope: `application`, default: `false`
+作用域：`application`，默认值：`false`
+
+"list.nextKeymap"					*coc-config-list-nextKeymap*
+“list.nextKeymap”*coc配置列表nextKeymap*
+
+Key used for select next line on insert mode.
+用于在插入模式下选择下一行的键。
+
+Scope: `application`, default: `"<C-j>"`
+作用域：`application`，默认值：`“<C-j>”`
+
+"list.normalMappings"					*coc-config-list-normalMappings*
+“list.normalMappings”*coc-config-list normalMappings*
+
+Custom keymappings on normal mode.
+正常模式下的自定义键映射。
+
+Scope: `application`, default: `{}`
+作用域：`application`，默认值：`{}`
+
+"list.previewHighlightGroup"				*coc-config-list-previewHighlightGroup*
+“list.prreviewHighlightGroup”*coc-config list previewHighlightGroup*
+
+Highlight group used for highlight the range in preview window.
+高亮显示组，用于在预览窗口中高亮显示范围。
+
+Scope: `application`, default: `"Search"`
+作用域：`application`，默认值：`“搜索”`
+
+"list.previewSplitRight"				*coc-config-list-previewSplitRight*
+“list.prreviewSplitRight”*coc配置列表预览SplitRight*
+
+Use vsplit for preview window.
+将vsplit用于预览窗口。
+
+Scope: `application`, default: `false`
+作用域：`application`，默认值：`false`
+
+"list.previewToplineOffset"				*coc-config-list-previewToplineOffset*
+“list.prreviewToplineOffset”*coc-config list reviewTopLineOffset*
+
+Topline offset for list previews
+列表预览的顶线偏移
+
+Scope: `application`, default: `3`
+作用域：`application`，默认值：`3`
+
+"list.previewToplineStyle"				*coc-config-list-previewToplineStyle*
+“list.previewToplineStyle”*coc-config-list previewToplineStyle*
+
+Topline style for list previews, could be "offset" or "middle".
+列表预览的顶线样式可以是“偏移”或“中间”。
+
+Scope: `application`, default: `"offset"`
+作用域：`application`，默认值：`“偏移量”`
+
+"list.previousKeymap"					*coc-config-list-previousKeymap*
+“list.previousKeymap”*coc-config list previousKeymap*
+
+Key used for select previous line on insert mode.
+用于在插入模式下选择上一行的键。
+
+Scope: `application`, default: `"<C-k>"`
+作用域：`application`，默认值：`“<C-k>”`
+
+"list.selectedSignText"					*coc-config-list-selectedSignText*
+“list.selectedSignText”*coc配置列表selectedSignText*
+
+Sign text for selected lines.
+选定行的签名文本。
+
+Scope: `application`, default: `"*"`
+作用域：`application`，默认值：`“*”`
+
+"list.signOffset"					*coc-config-list-signOffset*
+“list.signOffset”*coc-config-list signOffset*
+
+Sign offset of list, should be different from other plugins.
+列表的符号偏移量，应该与其他插件不同。
+
+Scope: `application`, default: `900`
+作用域：`application`，默认值：`900`
+
+"list.smartCase"					*coc-config-list-smartCase*
+“list.smartCase”*coc-config-list smartCase*
+
+Use smartcase match for fuzzy match and strict match, --ignore-case
+使用smartcase匹配进行模糊匹配和严格匹配，--忽略大小写
+will be ignored, may not affect interactive list.
+将被忽略，可能不会影响交互式列表。
+
+Scope: `application`, default: `false`
+作用域：`application`，默认值：`false`
+
+"list.source.diagnostics.includeCode"			*coc-config-list-source-diagnostics-includeCode*
+“list.source.diagnostics.includeCode”*coc-config list source diagnostics includeCode*
+
+Whether to show the diagnostic code in the list.
+是否在列表中显示诊断代码。
+
+Scope: `application`, default: `true`
+作用域：`application`，默认值：`true`
+
+"list.source.diagnostics.pathFormat"			*coc-config-list-source-diagnostics-pathFormat*
+“list.source.diagnostics.pathFormat”*coc-config list source diagnostics pathFormat*
+
+Decide how the filepath is shown in the list.
+决定文件路径在列表中的显示方式。
+
+Scope: `application`, default: `"full"`
+作用域：`application`，默认值：`“full”`
+
+"list.source.outline.ctagsFiletypes"			*coc-config-list-source-outline-ctagsFiletypes*
+“list.source.outline.ctagsFiletypes”*coc-config list source outline ctagsFiletypes*
+
+Filetypes that should use ctags for outline instead of language server.
+应该使用ctag作为大纲而不是语言服务器的文件类型。
+
+Scope: `application`, default: `[]`
+作用域：`application`，默认值：`[]`
+
+"list.source.symbols.excludes"				*coc-config-list-source-symbols-excludes*
+“list.source.symbols.excludes”*coc-config list源符号排除*
+
+Patterns of minimatch for filepath to exclude from symbols list.
+要从符号列表中排除的文件路径的最小匹配模式。
+
+Scope: `application`, default: `[]`
+作用域：`application`，默认值：`[]`
+
+"list.statusLineSegments"				*coc-config-list-statusLineSegments*
+“list.statusLineSegments”*coc-config list statusLineSe分段*
+
+An array of statusline segments that will be used to draw the status 
+将用于绘制状态的状态线段数组
+line for list windows.
+列表窗口的行。
+
+Scope: `application`.
+作用域：“应用程序”。
+
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+Notification~
+通知~
+*coc-config-notification*
+*coc配置通知*
+"notification.border"					*coc-config-notification-border*
+“notification.bborder”*coc-config-notification-bborder*
+
+Enable rounded border for notification windows.
+为通知窗口启用圆角边框。
+
+Scope: `application`, default: `true`
+作用域：`application`，默认值：`true`
+
+"notification.disabledProgressSources"			*coc-config-notification-disabledProgressSources*
+“notification.disabledProgressSources”*coc-config notification-disabledPProgressSources*
+
+Sources that should be disabled for message progress, use * to disable
+消息进度应禁用的源，使用*禁用
+all progresses.
+所有进展。
+
+Scope: `application`, default: `[]`
+作用域：`application`，默认值：`[]`
+
+"notification.focusable"				*coc-config-notification-focusable*
+“notification.focutable”*coc-config-notification-focusable*
+
+Enable focus by user actions (wincmds, mouse events), neovim only.
+通过用户操作（wincmds、鼠标事件）启用焦点，仅限neovim。
+
+Scope: `application`, default: `true`
+作用域：`application`，默认值：`true`
+
+"notification.highlightGroup"				*coc-config-notification-highlightGroup*
+“notification.heightGroup”*coc-config-notification-heightGroup*
+
+Highlight group of notification dialog.
+高亮显示通知对话框的组。
+
+Scope: `application`, default: `"Normal"`
+作用域：`application`，默认值：`“Normal”`
+
+"notification.marginRight"				*coc-config-notification-marginRight*
+“notification.marginRight”*coc-config notification marginRight*
+
+Margin right to the right of editor window.
+编辑器窗口右侧的边距。
+
+Scope: `application`, default: `10`
+作用域：`application`，默认值：`10`
+
+"notification.maxHeight"				*coc-config-notification-maxHeight*
+“notification.maxHeight”*coc-config-notification-maxHeight*
+
+Maximum content height of notification dialog.
+通知对话框的最大内容高度。
+
+Scope: `application`, default: `10`
+作用域：`application`，默认值：`10`
+
+"notification.maxWidth"					*coc-config-notification-maxWidth*
+“notification.maxWidth”*coc-config-notification-maxWidth*
+
+Maximum content width of notification dialog.
+通知对话框的最大内容宽度。
+
+Scope: `application`, default: `60`
+作用域：`application`，默认值：`60`
+
+"notification.minProgressWidth"				*coc-config-notification-minProgressWidth*
+“notification.minProgressWidth”*coc-config-notification-minProgressWidth*
+
+Minimal with of progress notification.
+进度通知最少。
+
+Scope: `application`, default: `30`
+作用域：`application`，默认值：`30`
+
+"notification.statusLineProgress"			*coc-config-notification-statusLineProgress*
+“notification.statusLineProgress”*coc-config notification-statusLineProgress*
+
+Show progress notification in status line, instead of use float
+在状态行中显示进度通知，而不是使用浮动
+window/popup.
+窗口/弹出窗口。
+
+"notification.timeout"					*coc-config-notification-timeout*
+“notification.timeout”*coc-config通知超时*
+
+Timeout for auto close notifications, in milliseconds.
+自动关闭通知的超时时间（以毫秒为单位）。
+
+Scope: `application`, default: `10000`
+作用域：`application`，默认值：`10000`
+
+"notification.winblend"					*coc-config-notification-winblend*
+“notification.winblend”*coc-config-notification-winblend*
+
+Winblend option of notification window, neovim only.
+通知窗口的Winblend选项，仅限neovim。
+
+Scope: `application`, default: `30`
+作用域：`application`，默认值：`30`
+
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+Npm~
+Npm~
+*coc-config-npm*
+*coc配置npm*
+"npm.binPath"						*coc-config-npm-binPath*
+“npm.binPath”*coc-config npm-binPath*
+
+Command or absolute path to npm or yarn for global extension
+用于全局扩展的npm或yarn的命令或绝对路径
+install/uninstall.
+安装/卸载。
+
+Scope: `application`, default: `"npm"`
+作用域：`application`，默认值：`“npm”`
+
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+Outline~
+概述
+*coc-config-outline*
+*coc配置大纲*
+"outline.autoPreview"					*coc-config-outline-autoPreview*
+“outline.autoPreview”*coc-config-outline autoPreview*
+
+Enable auto preview on cursor move.
+在光标移动时启用自动预览。
+
+Scope: `application`, default: `false`
+作用域：`application`，默认值：`false`
+
+"outline.autoWidth"					*coc-config-outline-autoWidth*
+“outline.autoWidth”*coc-config outline autoWidth*
+
+Automatically increase window width to avoid wrapped lines.
+自动增加窗口宽度以避免换行。
+
+Scope: `application`, default: `true`
+作用域：`application`，默认值：`true`
+
+"outline.checkBufferSwitch"				*coc-config-outline-checkBufferSwitch*
+“outline.checkBufferSwitch”*coc-config outline checkBufferSwitch*
+
+Recreate outline view after user changed to another buffer on current 
+在用户更改为当前缓冲区时重新创建大纲视图
+tab.
+选项卡。
+
+Scope: `application`, default: `true`
+作用域：`application`，默认值：`true`
+
+"outline.codeActionKinds"				*coc-config-outline-codeActionKinds*
+“outline.codeActionKinds”*coc-config outline codeActionKinds*
+
+Filter code actions in actions menu by kinds.
+按种类筛选操作菜单中的代码操作。
+
+Scope: `application`, default: `["","quickfix","refactor"]`
+作用域：`application`，默认值：`[“”，“quickfix”，“refract”]`
+
+"outline.detailAsDescription"				*coc-config-outline-detailAsDescription*
+“outline.detailAsDescription”*coc-config outline detailAsDescription*
+
+Show detail as description aside with label, when false detail will be
+将详细信息显示为带有标签的描述，此时会出现错误的详细信息
+shown in tooltip on cursor hold.
+显示在工具提示中。
+
+Scope: `application`, default: `true`
+作用域：`application`，默认值：`true`
+
+"outline.expandLevel"					*coc-config-outline-expandLevel*
+“outline.exexpandLevel”*coc-config outline expandLevel*
+
+Expand level of tree nodes.
+展开树节点的级别。
+
+Scope: `application`, default: `1`
+作用域：`application`，默认值：`1`
+
+"outline.followCursor"					*coc-config-outline-followCursor*
+“outline.flowerCursor”*coc-config outline followCursor*
+
+Reveal item in outline tree on cursor hold.
+按住光标时显示大纲树中的项目。
+
+Scope: `application`, default: `true`
+作用域：`application`，默认值：`true`
+
+"outline.keepWindow"					*coc-config-outline-keepWindow*
+“outline.keepWindow”*coc-config outline keepWindow*
+
+Jump back to original window after outline is shown.
+显示轮廓后跳回原始窗口。
+
+Scope: `application`, default: `false`
+作用域：`application`，默认值：`false`
+
+"outline.previewBorder"					*coc-config-outline-previewBorder*
+“outline.prreviewBorder”*coc-config outline previewBorder*
+
+Use border for preview window.
+使用预览窗口的边框。
+
+Scope: `application`, default: `true`
+作用域：`application`，默认值：`true`
+
+"outline.previewBorderHighlightGroup"			*coc-config-outline-previewBorderHighlightGroup*
+“outline.prreviewBorderHighlightGroup”*coc-config outline previewBorderHighghtGroup*
+
+Border highlight group of preview window.
+预览窗口的边框高亮显示组。
+
+Scope: `application`, default: `"Normal"`
+作用域：`application`，默认值：`“Normal”`
+
+"outline.previewBorderRounded"				*coc-config-outline-previewBorderRounded*
+“outline.prreviewBorderFounded”*coc-config outline previewBorderFoundd*
+
+Use rounded border for preview window.
+预览窗口使用圆角边框。
+
+Scope: `application`, default: `false`
+作用域：`application`，默认值：`false`
+
+"outline.previewHighlightGroup"				*coc-config-outline-previewHighlightGroup*
+“outline.prreviewHighlightGroup”*coc-config outline previewHighlightGroup*
+
+Highlight group of preview window.
+高亮显示预览窗口的组。
+
+Scope: `application`, default: `"Normal"`
+作用域：`application`，默认值：`“Normal”`
+
+"outline.previewMaxWidth"				*coc-config-outline-previewMaxWidth*
+“outline.prreviewMaxWidth”*coc-config outline previewMaxWidth*
+
+Max width of preview window.
+预览窗口的最大宽度。
+
+Scope: `application`, default: `80`
+作用域：`application`，默认值：`80`
+
+"outline.previewWinblend"				*coc-config-outline-previewWinblend*
+“outline.prreviewWinblend”*coc-config outline previewWinblend*
+
+Enables pseudo-transparency by set 'winblend' option of window, neovim
+通过设置窗口neovim的“winblend”选项启用伪透明度
+only.
+只有
+
+Scope: `application`, default: `0`
+作用域：`application`，默认值：`0`
+
+"outline.showLineNumber"				*coc-config-outline-showLineNumber*
+“outline.showLineNumber”*coc-config outline showLineNumber*
+
+Show line number of symbols.
+显示符号的行号。
+
+Scope: `application`, default: `true`
+作用域：`application`，默认值：`true`
+
+"outline.sortBy"					*coc-config-outline-sortBy*
+“outline.sortBy”*coc-config outline sortBy*
+
+Default sort method for symbols outline.
+符号轮廓的默认排序方法。
+
+Scope: `application`, default: `"category"`
+作用域：`application`，默认值：`“category”`
+
+"outline.splitCommand"					*coc-config-outline-splitCommand*
+“outline.splitCommand”*coc-config outline splitCommand*
+
+Window split command used by outline.
+大纲使用的窗口拆分命令。
+
+Scope: `application`, default: `"botright 30vs"`
+作用域：`application`，默认值：`“botright 30vs”`
+
+"outline.switchSortKey"					*coc-config-outline-switchSortKey*
+“outline.switchSortKey”*coc-config outline switchSortKey*
+
+The key used to switch sort method for symbols provider of current
+用于切换当前符号提供程序的排序方法的键
+tree view.
+树状视图。
+
+Scope: `application`, default: `"<C-s>"`
+作用域：`application`，默认值：`“<C-s>”`
+
+"outline.togglePreviewKey"				*coc-config-outline-togglePreviewKey*
+“outline.thogglePreviewKey”*coc-config outline togglePreviiewKey*
+
+The key used to toggle auto preview feature.
+用于切换自动预览功能的键。
+
+Scope: `application`, default: `"p"`
+作用域：`application`，默认值：`“p”`
+
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+PullDiagnostic~
+PullDiagnostic~
+*coc-config-pullDiagnostic*
+*coc-config-pullDiagnostic*
+"pullDiagnostic.ignored"				*coc-config-pullDiagnostic-ignored*
+“pullDiagnostic.ignored”*coc-config pullDiagnostic已忽略*
+
+Minimatch patterns to match full filepath that should be ignored for
+最小匹配模式以匹配应忽略的完整文件路径
+pullDiagnostic.
+pullDiagnostic。
+
+Scope: `application`, default: `[]`
+作用域：`application`，默认值：`[]`
+
+"pullDiagnostic.onChange"				*coc-config-pullDiagnostic-onChange*
+“pullDiagnostic.onChange”*coc-config pullDiagnostic onChange*
+
+Whether to pull for diagnostics on document change.
+是否对文档更改进行诊断。
+
+Scope: `language-overridable`, default: `true`
+作用域：“语言可重写”，默认值：“true”`
+
+"pullDiagnostic.onSave"					*coc-config-pullDiagnostic-onSave*
+“pullDiagnostic.onSave”*coc-config pullDiagnostic onSave*
+
+Whether to pull for diagnostics on document save.
+是否在文档保存时进行诊断。
+
+Scope: `language-overridable`, default: `false`
+作用域：“语言可重写”，默认值：“false”`
+
+"pullDiagnostic.workspace"				*coc-config-pullDiagnostic-workspace*
+“pullDiagnostic.workspace”*coc-config pullDiagnostic工作区*
+
+Whether to pull for workspace diagnostics when possible.
+是否在可能的情况下进行工作区诊断。
+
+Scope: `application`, default: `true`
+作用域：`application`，默认值：`true`
+
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+Refactor~
+Refactor~
+*coc-config-refactor*
+*coc配置重构*
+"refactor.afterContext"					*coc-config-refactor-afterContext*
+“refract.afterContext”*coc-config refract-afterContext*
+
+Print num lines of trailing context after each match.
+在每次匹配后打印尾随上下文的num行。
+
+Scope: `application`, default: `3`
+作用域：`application`，默认值：`3`
+
+"refactor.beforeContext"				*coc-config-refactor-beforeContext*
+“refract.bforeContext”*coc-config refract-bforeContext*
+
+Print num lines of leading context before each match.
+在每次匹配之前打印前导上下文的num行。
+
+Scope: `application`, default: `3`
+作用域：`application`，默认值：`3`
+
+"refactor.openCommand"					*coc-config-refactor-openCommand*
+“refract.openCommand”*coc-config refract-openCommand*
+
+Open command for refactor window.
+打开重构窗口的命令。
+
+Scope: `application`, default: `"vsplit"`
+作用域：`application`，默认值：`“vsplit”`
+
+"refactor.saveToFile"					*coc-config-refactor-saveToFile*
+“重构.saveToFile”*coc-config重构saveToFile*
+
+Save changed buffer to file when write refactor buffer with ':noa wa'
+使用“：noa-wa”写入重构缓冲区时，将更改的缓冲区保存到文件
+command.
+命令
+
+Scope: `application`, default: `true`
+作用域：`application`，默认值：`true`
+
+"refactor.showMenu"					*coc-config-refactor-showMenu*
+“refract.showMenu”*coc-config refract-showMenu*
+
+Refactor buffer local mapping to bring up menu for this chunk.
+重构缓冲区本地映射以打开此区块的菜单。
+
+Scope: `application`, default: `"<Tab>"`
+作用域：`application`，默认值：`“<Tab>”`
+
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+SemanticTokens~
+SemanticTokens~
+*coc-config-semanticTokens*
+*coc-config语义令牌*
+"semanticTokens.combinedModifiers"			*coc-config-semanticTokens-combinedModifiers*
+“semanticTokens.combinedModifiers”*coc-config semanticTokens combinedModifiers*
+
+Semantic token modifiers that should have highlight combined with
+应将高亮显示与组合的语义标记修饰符
+syntax highlights.
+语法高亮显示。
+
+Scope: `language-overridable`, default: `["deprecated"]`
+作用域：`language overridable`，默认值：`[“已弃用”]`
+
+"semanticTokens.enable"					*coc-config-semanticTokens-enable*
+“semanticTokens.enable”*coc-configSemanticTokens enable*
+
+Enable semantic tokens support.
+启用语义令牌支持。
+
+Scope: `language-overridable`, default: `false`
+作用域：“语言可重写”，默认值：“false”`
+
+"semanticTokens.highlightPriority"			*coc-config-semanticTokens-highlightPriority*
+“semanticTokens.highlightPriority”*coc-configsemanticToken highlightPriority*
+
+Priority for semantic tokens highlight.
+突出显示语义标记的优先级。
+
+Scope: `language-overridable`, default: `2048`
+作用域：“语言可重写”，默认值：“2048”`
+
+"semanticTokens.incrementTypes"				*coc-config-semanticTokens-incrementTypes*
+“semanticTokens.incrementTypes”*coc-config semanticToken incrementTypes*
+
+Semantic token types that should increase highlight when insert at the 
+插入时应增加高亮显示的语义标记类型
+start and end position of token.
+令牌的开始和结束位置。
+
+Scope: `language-overridable`, default: `["variable","string","parameter"]`
+作用域：`language overridable`，默认值：`[“variable”，“string”，“parameter”]`
+
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+Signature~
+签名
+*coc-config-signature*
+*coc配置签名*
+"signature.enable"					*coc-config-signature-enable*
+“signature.enable”*coc-config signature enable*
+
+Enable show signature help when trigger character typed.
+键入触发器字符时启用显示签名帮助。
+
+Scope: `language-overridable`, default: `true`
+作用域：“语言可重写”，默认值：“true”`
+
+"signature.floatConfig"					*coc-config-signature-floatConfig*
+“signature.foatConfig”*coc-config signature floatConfig*
+
+Configuration of floating window/popup for signature documents, see
+配置用于签名文档的浮动窗口/弹出窗口，请参阅
+|coc-config-float|.
+|coc-config-foat|。
+
+Scope: `application`, default: `null`
+作用域：`application`，默认值：`null`
+
+"signature.hideOnTextChange"				*coc-config-signature-hideOnTextChange*
+“signature.hideOnTextChange”*coc-config signature hideOnTextChange*
+
+Hide signature float window when text changed on insert mode.
+在插入模式下更改文本时隐藏签名浮动窗口。
+
+Scope: `language-overridable`, default: `false`
+作用域：“语言可重写”，默认值：“false”`
+
+"signature.preferShownAbove"				*coc-config-signature-preferShownAbove*
+“signature.preferShownAbove”*coc-config signature preferShownAabove*
+
+Show signature help float window above cursor when possible, require
+尽可能在光标上方显示签名帮助浮动窗口，需要
+restart coc.nvim on change.
+更改时重新启动coc.nvim。
+
+Scope: `application`, default: `true`
+作用域：`application`，默认值：`true`
+
+"signature.target"					*coc-config-signature-target*
+“signature.target”*coc-config signature target*
+
+Target of signature help, use float when possible by default.
+签名帮助的目标，默认情况下尽可能使用float。
+
+Scope: `language-overridable`, default: `"float"`
+作用域：`语言可重写'，默认值：`“float”`
+
+"signature.triggerSignatureWait"			*coc-config-signature-triggerSignatureWait*
+“signature.triggerSignatureWait”*coc-config signature triggerSignature Wait*
+
+Timeout for trigger signature help, in milliseconds.
+触发器签名帮助的超时时间（以毫秒为单位）。
+
+Scope: `language-overridable`, default: `500`
+作用域：“语言可重写”，默认值：“500”`
+
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+Snippet~
+一小条
+*coc-config-snippet*
+*coc配置片段*
+"snippet.highlight"					*coc-config-snippet-highlight*
+“snipper.highlight”*coc-config snippet highlight*
+
+Use highlight group 'CocSnippetVisual' to highlight placeholders with 
+使用突出显示组“CocSnippetVisual”突出显示占位符
+same index of current one.
+与当前索引相同。
+
+Scope: `resource`, default: `false`
+作用域：`resource`，默认值：`false`
+
+"snippet.nextPlaceholderOnDelete"			*coc-config-snippet-nextPlaceholderOnDelete*
+“snippet.nextPlaceholderOnDelete”*coc配置snippet-nextPlaceholder OnDelete*
+
+Automatically jump to the next placeholder when the current one is 
+当前占位符为时自动跳转到下一个占位符
+completely deleted.
+完全删除。
+
+Scope: `resource`, default: `false`
+作用域：`resource`，默认值：`false`
+
+"snippet.statusText"					*coc-config-snippet-statusText*
+“snippet.statusText”*coc-config snippet statusText*
+
+Text shown in statusline to indicate snippet session is activated.
+状态线中显示的文本表示片段会话已激活。
+
+Scope: `application`, default: `"SNIP"`
+作用域：`application`，默认值：`“SNIP”`
+
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+Suggest~
+建议
+*coc-config-suggest*
+*coc配置建议*
+"suggest.acceptSuggestionOnCommitCharacter"		*coc-config-suggest-acceptSuggestionOnCommitCharacter*
+“suggy.acceptSuggestionOnCommitCharacter”*coc-config suggestiononOnCommitCharacter*
+
+Controls whether suggestions should be accepted on commit characters.
+控制是否应接受关于提交字符的建议。
+For example, in JavaScript, the semi-colon (`;`) can be a commit
+例如，在JavaScript中，分号（`；`）可以是提交
+character that accepts a suggestion and types that character.
+接受建议并键入该字符的字符。
+
+Scope: `language-overridable`, default: `false`
+作用域：“语言可重写”，默认值：“false”`
+
+"suggest.asciiCharactersOnly"				*coc-config-suggest-asciiCharactersOnly*
+“建议.asciiCharactersOnly”*coc-config建议仅使用asciiCharactersOnly*
+
+Trigger suggest with ASCII characters only.
+触发器建议仅使用ASCII字符。
+
+Scope: `language-overridable`, default: `false`
+作用域：“语言可重写”，默认值：“false”`
+
+"suggest.chineseSegments"				*coc-config-suggest-chineseSegments*
+“suggle.chineseSegments”*coc-config suggle chineseSegments*
+
+Divide Chinese sentence into segments in around/buffer source.
+将中文句子分成前后两段。
+
+Scope: `language-overridable`, default: `true`
+作用域：“语言可重写”，默认值：“true”`
+
+"suggest.asciiMatch"					*coc-config-suggest-asciiMatch*
+“建议.asciiMatch”*coc-config建议-asciiMatch*
+
+Convert unicode characters to ascii for match.
+将unicode字符转换为ascii以进行匹配。
+
+Scope: `language-overridable`, default: `true`
+作用域：“语言可重写”，默认值：“true”`
+
+"suggest.autoTrigger"					*coc-config-suggest-autoTrigger*
+“建议.autoTrigger”*coc-config建议自动触发器*
+
+How should completion be triggered, could be `"always"`, `"trigger"`
+应该如何触发完成，可以是“始终”、“触发器”`
+or `"none"`.
+或“无”。
+
+Scope: `language-overridable`, default: `"always"`
+作用域：`语言可重写'，默认值：`“始终”`
+
+"suggest.completionItemKindLabels"			*coc-config-suggest-completionItemKindLabels*
+“建议完成ItemKindLabels”*coc-config建议完成ItemkindLabels*
+
+Set custom labels to completion items' kinds.
+为完成项的种类设置自定义标签。
+Default value: >
+默认值：>
+{
+{
+"text": "v",
+“text”：“v”，
+"method": "f",
+“方法”：“f”，
+"function": "f",
+“函数”：“f”，
+"constructor": "f",
+“构造函数”：“f”，
+"field": "m",
+“字段”：“m”，
+"variable": "v",
+“变量”：“v”，
+"class": "C",
+“类”：“C”，
+"interface": "I",
+“接口”：“I”，
+"module": "M",
+“模块”：“M”，
+"property": "m",
+“属性”：“m”，
+"unit": "U",
+“单位”：“U”，
+"value": "v",
+“value”：“v”，
+"enum": "E",
+“enum”：“E”，
+"keyword": "k",
+“关键字”：“k”，
+"snippet": "S",
+“snippet”：“S”，
+"color": "v",
+“color”：“v”，
+"file": "F",
+“文件”：“F”，
+"reference": "r",
+“reference”：“r”，
+"folder": "F",
+“文件夹”：“F”，
+"enumMember": "m",
+“enumMember”：“m”，
+"constant": "v",
+“常量”：“v”，
+"struct": "S",
+“struct”：“S”，
+"event": "E",
+“事件”：“E”，
+"operator": "O",
+“运算符”：“O”，
+"typeParameter": "T",
+“typeParameter”：“T”，
+"default": ""
+违约
+}
+}
+<
+<
+Scope: `application`
+作用域：`application`
+
+"suggest.defaultSortMethod"				*coc-config-suggest-defaultSortMethod*
+“建议.defaultSortMethod”*coc-config建议-defaultSortMMethod*
+
+Default sorting behavior when trigger is empty, could be `"length"`,
+触发器为空时的默认排序行为，可以是“长度”，
+`"alphabetical"` or `"none"`.
+`“按字母顺序”`或`“无”`。
+
+Scope: `language-overridable`, default: `"length"`
+作用域：`语言可重写'，默认值：`“长度”`
+
+"suggest.detailField"					*coc-config-suggest-detailField*
+“建议.detailField”*coc-config建议-detailField*
+
+Where to show the detail text of CompleteItem from language server.
+在哪里显示语言服务器中CompleteItem的详细文本。
+
+Scope: `application`, default: `"preview"`
+作用域：`application`，默认值：`“预览”`
+
+"suggest.enableFloat" 					*coc-config-suggest-enableFloat*
+“suggle.enableFloat”*coc-config suggleenableFloat*
+
+Enable float window with documentation aside with popupmenu.
+使用弹出菜单启用带有文档的浮动窗口。
+
+Scope: `language-overridable`, default: `true`
+作用域：“语言可重写”，默认值：“true”`
+
+"suggest.enablePreselect"				*coc-config-suggest-enablePreselect*
+“suggle.enablePreselect”*coc-config suggleenablePreselect*
+
+Enable preselect feature, works when |coc-config-suggest-noselect| is
+启用预选功能，当|coc-config建议noselect|为
+false.
+false。
+
+Scope: `application`, default: `true`
+作用域：`application`，默认值：`true`
+
+"suggest.filterGraceful" 				*coc-config-suggest-filterGraceful*
+“建议.filterGraceful”*coc-config建议filterGraceful*
+
+Controls whether filtering and sorting suggestions accounts for small
+控制筛选和排序建议是否占小
+typos.
+打字错误。
+
+Scope: `language-overridable`, default: `true`
+作用域：“语言可重写”，默认值：“true”`
+
+"suggest.filterOnBackspace" 				*coc-config-suggest-filterOnBackspace*
+“suggle.filterOnBackspace”*coc-config suggle-filterOnBackspace*
+
+Filter complete items on backspace.
+在退格上筛选完整项目。
+
+Scope: `language-overridable`, default: `true`
+作用域：“语言可重写”，默认值：“true”`
+
+"suggest.floatConfig"					*coc-config-suggest-floatConfig*
+“sugge.floatConfig”*coc-config suggy-floatConfig*
+
+Configure style of popup menu and documentation window for completion,
+配置弹出菜单和文档窗口的样式以完成，
+see |coc-config-float|.
+请参阅|coc-config-foat|。
+
+Note: some properties not work, including: "title", "focusable",
+注意：有些属性不起作用，包括：“title”，“focusable”，
+"close" and "maxHeight" (use 'pumheight' option for maximum height of
+“close”和“maxHeight”（使用“pumheight”选项表示的最大高度
+popup menu).
+弹出菜单）。
+
+Note: "maxWidth" not works for popup menu, use
+注意：“maxWidth”不适用于弹出菜单，请使用
+|coc-config-suggest-labelMaxLength| instead.
+|coc-config建议改为labelMaxLength|。
+
+"suggest.formatItems"					*coc-config-suggest-formatItems*
+“sugge.formatItems”*coc-config sugge-formatItems*
+
+Items shown in popup menu in order.
+弹出菜单中按顺序显示的项目。
+
+Scope: `application`, default: `["abbr","menu","kind","shortcut"]`
+作用域：`application`，默认值：`[“缩写”、“菜单”、“种类”、“快捷方式”]`
+
+"suggest.highPrioritySourceLimit"			*coc-config-suggest-highPrioritySourceLimit*
+“建议.highPrioritySourceLimit”*coc-config建议highPrioritySourceLimited*
+
+Max items count for source priority bigger than or equal to 90.
+源优先级大于或等于90的最大项目数。
+
+Scope: `language-overridable`, default: `null`
+作用域：“语言可重写”，默认值：“null”`
+
+"suggest.insertMode" 					*coc-config-suggest-insertMode*
+“sugge.insertMode”*coc-config suggy-insertMode*
+
+Controls whether words are overwritten when accepting completions.
+控制在接受补全时是否覆盖单词。
+
+Scope: `language-overridable`, default: `“replace"`
+作用域：`语言可重写'，默认值：`“替换”`
+
+"suggest.ignoreRegexps"					*coc-config-suggest-ignoreRegexps*
+“建议.ignoreRegexps”*coc-config建议ignoreRegexps*
+
+Regexps to ignore when trigger suggest.
+触发器建议时要忽略的Regexp。
+
+Scope: `language-overridable`, default: `[]`
+作用域：“语言可重写”，默认值：“[]”`
+
+"suggest.invalidInsertCharacters"			*coc-config-suggest-invalidInsertCharacters*
+“sugge.invalidInsertCharacters”*coc-config suggest invalidInsertCharacters*
+
+Invalid character for strip valid word when inserting text of complete
+插入完整的文本时，条形有效单词的无效字符
+item.
+项目
+
+Scope: `application`, default: `["\r","\n"]`
+作用域：`application`，默认值：`[“\r”，“\n”]`
+
+"suggest.labelMaxLength"				*coc-config-suggest-labelMaxLength*
+“建议.labelMaxLength”*coc-config建议labelMaxLength*
+
+Max length of abbr that shown as label of complete item.
+显示为完整项目标签的缩写的最大长度。
+
+Scope: `application`, default: `200`
+作用域：`application`，默认值：`200`
+
+"suggest.languageSourcePriority"			*coc-config-suggest-languageSourcePriority*
+“建议.languageSourcePriority”*coc-config建议-languageSourcePriority*
+
+Priority of language sources.
+语言来源的优先级。
+
+Scope: `language-overridable`, default: `99`
+作用域：“语言可重写”，默认值：“99”`
+
+"suggest.localityBonus"					*coc-config-suggest-localityBonus*
+“建议.localityBonus”*coc-config建议localityBonus*
+
+Boost suggestions that appear closer to the cursor position.
+提升显示在光标位置附近的建议。
+
+Scope: `language-overridable`, default: `true`
+作用域：“语言可重写”，默认值：“true”`
+
+"suggest.lowPrioritySourceLimit"			*coc-config-suggest-lowPrioritySourceLimit*
+“suggle.lowPrioritySourceLimit”*coc-config suggle-lowPrioritySourceLimited*
+
+Max items count for source priority lower than 90.
+源优先级低于90的最大项目数。
+
+Scope: `language-overridable`, default: `null`
+作用域：“语言可重写”，默认值：“null”`
+
+"suggest.maxCompleteItemCount"				*coc-config-suggest-maxCompleteItemCount*
+“建议.maxCompleteItemCount”*coc-config建议maxCompleteItemCount*
+
+Maximum number of complete items shown in vim.
+vim中显示的完整项目的最大数量。
+
+Scope: `language-overridable`, default: `256`
+作用域：“语言可重写”，默认值：“256”`
+
+"suggest.minTriggerInputLength"				*coc-config-suggest-minTriggerInputLength*
+“sugge.minTriggerInputLength”*coc-config suggle minTriggerInput Length*
+
+Minimal input length for trigger completion.
+触发器完成的最小输入长度。
+
+Scope: `language-overridable`, default: `1`
+作用域：“语言可重写”，默认值：“1”`
+
+"suggest.noselect"					*coc-config-suggest-noselect*
+“建议.noselect”*coc-config建议-noselect*
+
+Not make vim select first item on popupmenu shown.
+不让vim选择显示的弹出菜单上的第一个项目。
+
+Scope: `application`, default: `false`
+作用域：`application`，默认值：`false`
+
+"suggest.preferCompleteThanJumpPlaceholder"		*coc-config-suggest-preferCompleteThanJumpPlaceholder*
+“sugge.preferrCompleteThanJumpPlaceholder”*coc-config sugglepreferrCompletethanJumpPlaceHolder*
+
+Confirm completion instead of jump to next placeholder when completion
+确认完成，而不是在完成时跳转到下一个占位符
+is activated.
+被激活。
+
+Scope: `resource`, default: `false`
+作用域：`resource`，默认值：`false`
+
+"suggest.pumFloatConfig"				*coc-config-suggest-pumFloatConfig*
+“建议.pumFloatConfig”*coc-config建议pumFloatCnfig*
+
+Configure style of popup menu, |coc-config-suggest-floatConfig| is
+配置弹出菜单的样式，|coc-config suggest floatConfig|is
+used when not specified, see |coc-config-float|.
+未指定时使用，请参阅|coc-config-foat|。
+
+Available properties: "border", "rounded", "highlight",
+可用属性：“边框”、“圆角”、“高亮显示”、，
+"borderhighlight", "winblend" and "shadow".
+“borderhighlight”、“winblend”和“shadow”。
+
+Note: 'winblend' option is used for custom popup menu when not
+注意：“winblend”选项用于自定义弹出菜单，而不是
+configured, use 'pumwidth' for minimal width of popup menu and
+已配置，使用“pumwidth”作为弹出菜单的最小宽度，以及
+'pumheight' for maximum height of popup menu.
+“pumheight”表示弹出菜单的最大高度。
+
+Scope: `application`, default: `null`
+作用域：`application`，默认值：`null`
+
+"suggest.removeDuplicateItems"				*coc-config-suggest-removeDuplicateItems*
+“suggle.removeDuplicateItems”*coc-config suggleremoveDuplicateItems*
+
+Remove completion items with duplicated word for all sources, snippet
+删除所有源的具有重复单词的完成项，代码段
+items are excluded.
+项目被排除在外。
+
+Scope: `language-overridable`, default: `false`
+作用域：“语言可重写”，默认值：“false”`
+
+"suggest.removeCurrentWord"				*coc-config-suggest-removeCurrentWord*
+“建议.removeCurrentWord”*coc-config建议removeCurrentWord*
+
+Remove word item (from around and buffer source) that is identical to
+删除与相同的单词项（来自周围和缓冲区源）
+current input
+电流输入
+
+Scope: `language-overridable`, default: `false`
+作用域：“语言可重写”，默认值：“false”`
+
+"suggest.reversePumAboveCursor"				*coc-config-suggest-reversePumAboveCursor*
+“recommender.reversePumpAboveCursor”*coc-config recommenderpumpAbovecursor*
+
+Reverse order of complete items when pum shown above cursor.
+当pum显示在光标上方时，颠倒完整项目的顺序。
+
+Scope: `application`, default: `false`
+作用域：`application`，默认值：`false`
+
+"suggest.selection"					*coc-config-suggest-selection*
+“建议选择”*coc-config建议选择*
+
+Controls how suggestions are pre-selected when showing the suggest list.
+控制在显示建议列表时如何预先选择建议。
+
+Scope: `application`, default: `"first"`
+作用域：`application`，默认值：`“first”`
+
+"suggest.snippetIndicator"				*coc-config-suggest-snippetIndicator*
+“sugg.snippetIndicator”*coc-config-snippetIndicator*
+
+The character used in abbr of complete item to indicate the item could
+完整项目缩写中使用的字符，表示项目可以
+be expand as snippet.
+展开为snippet。
+
+Scope: `application`, default: `"~"`
+作用域：`application`，默认值：`“~”`
+
+"suggest.snippetsSupport"				*coc-config-suggest-snippetsSupport*
+“建议.snippetsSupport”*coc-config-snippetsupport*
+
+Set to false to disable snippets support of completion.
+设置为false可禁用代码段对完成的支持。
+
+Scope: `language-overridable`, default: `true`
+作用域：“语言可重写”，默认值：“true”`
+
+"suggest.timeout"					*coc-config-suggest-timeout*
+“建议超时”*coc-config建议超时*
+
+Timeout for completion, in milliseconds.
+完成超时，以毫秒为单位。
+
+Scope: `language-overridable`, default: `5000`
+作用域：“语言可重写”，默认值：“5000”`
+
+"suggest.triggerAfterInsertEnter"			*coc-config-suggest-triggerAfterInsertEnter*
+“sugge.triggerAfterInsertEnter”*coc-config sugge triggerAfter InsertEnter*
+
+Trigger completion after InsertEnter, |coc-config-suggest-autoTrigger|
+InsertEnter后触发器完成，|coc-config建议autoTrigger|
+should be 'always' to enable this option
+应为“始终”以启用此选项
+
+Scope: `language-overridable`, default: `false`
+作用域：“语言可重写”，默认值：“false”`
+
+"suggest.triggerCompletionWait"				*coc-config-suggest-triggerCompletionWait*
+“sugge.triggerCompletionWait”*coc-config suggest triggerComplexionWait*
+
+Wait time between text change and completion start, cancel completion
+文本更改和完成之间的等待时间开始，取消完成
+when text changed during wait.
+当文本在等待过程中发生更改时。
+
+Scope: `language-overridable`, default: `0`
+作用域：“语言可重写”，默认值：“0”`
+
+"suggest.virtualText"					*coc-config-suggest-virtualText*
+“建议.virtualText”*coc-config建议virtualText*
+
+Show virtual text for insert word of selected item, requires
+显示所选项目的插入词的虚拟文本，需要
+neovim >= 0.5.0 or vim >= 9.0.0067.
+neovim>=0.5.0或vim>=9.0067。
+
+Scope: `application`, default: `false`
+作用域：`application`，默认值：`false`
+
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+Tree~
+树
+*coc-config-tree*
+*coc配置树*
+"tree.openedIcon"					*coc-config-tree-openedIcon*
+“tree.openedIcon”*coc配置树openedIcon*
+
+Opened icon of tree view.
+已打开树视图的图标。
+
+Scope: `application`, default: `"-"`
+作用域：`application`，默认值：`“-”`
+
+"tree.closedIcon"					*coc-config-tree-closedIcon*
+“tree.closedIcon”*coc-config-tree closedIcon*
+
+Closed icon of tree view.
+树视图的关闭图标。
+
+Scope: `application`, default: `"+"`
+作用域：`application`，默认值：`“+”`
+
+"tree.key.actions"					*coc-config-tree-key-actions*
+“tree.key.actions”*coc-config tree-key-actions*
+
+Trigger key to invoke actions.
+用于调用操作的触发器键。
+
+Scope: `application`, default: `"<tab>"`
+作用域：`application`，默认值：`“<tab>”`
+
+"tree.key.activeFilter"					*coc-config-tree-key-activeFilter*
+“tree.key.activeFilter”*coc-config tree-key-activeFilter*
+
+Trigger key active filter.
+触发键有源滤波器。
+
+Scope: `application`, default: `"f"`
+作用域：`application`，默认值：`“f”`
+
+"tree.key.close"					*coc-config-tree-key-close*
+“tree.key.close”*coc-config树密钥关闭*
+
+Trigger key to dispose the tree and close tree window.
+触发器键，用于处理树并关闭树窗口。
+
+Scope: `application`, default: `"<esc>"`
+作用域：`application`，默认值：`“<esc>”`
+
+"tree.key.collapseAll"					*coc-config-tree-key-collapseAll*
+“tree.key.collapseAll”*coc-config树密钥collapseAll*
+
+Trigger key to collapse all tree node.
+用于折叠所有树节点的触发器键。
+
+Scope: `application`, default: `"M"`
+作用域：`application`，默认值：`“M”`
+
+"tree.key.invoke"					*coc-config-tree-key-invoke*
+“tree.keyinvoke”*coc-config-tree key invoke*
+
+Trigger key to invoke default command of current node or selection.
+触发器键，用于调用当前节点或选择的默认命令。
+
+Scope: `application`, default: `"<cr>"`
+作用域：`application`，默认值：`“<cr>”`
+
+"tree.key.selectNext"					*coc-config-tree-key-selectNext*
+“tree.key.selectNext”*coc-config tree-key-selectNext*
+
+Trigger key to select next item during filter.
+在筛选过程中选择下一个项目的触发器键。
+
+Scope: `application`, default: `"<C-j>"`
+作用域：`application`，默认值：`“<C-j>”`
+
+"tree.key.selectPrevious"				*coc-config-tree-key-selectPrevious*
+“tree.key.selectPrevious”*coc-config tree-key-selectPrevious*
+
+Trigger key to select previous item during filter.
+在筛选过程中选择上一个项目的触发器键。
+
+Scope: `application`, default: `"<C-k>"`
+作用域：`application`，默认值：`“<C-k>”`
+
+"tree.key.toggle"					*coc-config-tree-key-toggle*
+“tree.key.thoggle”*coc-config树键切换*
+
+Trigger key to toggle expand state of tree node, does nothing with leaf 
+触发键切换树节点的展开状态，对叶子不起任何作用
+node.
+节点。
+
+Scope: `application`, default: `"t"`
+作用域：`application`，默认值：`“t”`
+
+"tree.key.toggleSelection"				*coc-config-tree-key-toggleSelection*
+“tree.key.thoggleSelection”*coc-config-tree key toggleSelection*
+
+Trigger key to select/unselect item.
+用于选择/取消选择项目的触发器键。
+
+Scope: `application`, default: `"<space>"`
+作用域：`application`，默认值：`“<space>”`
+
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+TypeHierarchy~
+类型层次结构~
+*coc-config-typeHierarchy*
+*coc配置类型层次结构*
+"typeHierarchy.enableTooltip"				*coc-config-typeHierarchy-enableTooltip*
+“typeHierarchy.enableTooltip”*coc-config typeHierachy.enableTooltip*
+
+Enable tooltip to show relative filepath of type hierarchy item.
+启用工具提示以显示类型层次结构项的相对文件路径。
+
+Scope: `application`, default: `true`
+作用域：`application`，默认值：`true`
+
+"typeHierarchy.openCommand"				*coc-config-typeHierarchy-openCommand*
+“typeHierarchy.openCommand”*coc-config typeHierachy.openCommand*
+
+Open command for type hierarchy tree view.
+打开类型层次结构树视图的命令。
+
+Scope: `application`, default: `"edit"`
+作用域：`application`，默认值：`edit`
+
+"typeHierarchy.splitCommand"				*coc-config-typeHierarchy-splitCommand*
+“typeHierarchy.splitCommand”*coc-config typeHierachy splitCommand*
+
+Window split command used by type hierarchy tree view.
+类型层次结构树视图使用的窗口拆分命令。
+
+Scope: `application`, default: `"botright 30vs"`
+作用域：`application`，默认值：`“botright 30vs”`
+
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+Workspace~
+工作区~
+*coc-config-workspace*
+*coc配置工作区*
+"workspace.rootPatterns"				*coc-config-workspace-rootPatterns*
+“workspace.rootPatterns”*coc-config workspace rootPatterns*
+
+Root patterns to resolve workspaceFolder from parent folders of opened
+从打开的父文件夹解析workspaceFolder的根模式
+files, resolved from up to down.
+文件，从上到下解析。
+
+Scope: `application`, default: `[".git",".hg",".projections.json"]`
+作用域：`application`，默认值：`[“.git”，“.hg”，“.projects.json”]`
+
+"workspace.bottomUpFiletypes"				*coc-config-workspace-bottomUpFiletypes*
+“workspace.bottomUpFiletypes”*coc-config workspace-bottomUpFile types*
+
+Filetypes that should have workspace folder should resolved from base 
+应该具有工作区文件夹的文件类型应该从基解析
+directory of file, or ["*"] for any filetype.
+文件的目录，或任何文件类型的[“*”]。
+
+Scope: `application`, default: `[]`
+作用域：`application`，默认值：`[]`
+
+"workspace.ignoredFiletypes"				*coc-config-workspace-ignoredFiletypes*
+“workspace.ignoredFiletypes”*coc-config workspace-ignoredFiletypes*
+
+Filetypes that should be ignored for workspace folder resolve.
+工作区文件夹解析应忽略的文件类型。
+
+Scope: `resource`, default: `[]`
+作用域：`resource`，默认值：`[]`
+
+"workspace.ignoredFolders"				*coc-config-workspace-ignoredFolders*
+“workspace.ignoredFolders”*coc-config workspace ignoredFolders*
+
+List of folders that should not be resolved as workspace folder,
+不应解析为工作区文件夹的文件夹列表，
+environment variables and minimatch patterns can be used.
+可以使用环境变量和最小匹配模式。
+
+Scope: `application`, default: `["$HOME"]`
+作用域：`application`，默认值：`[“$HOME”]`
+
+"workspace.openOutputCommand"				*coc-config-workspace-openOutputCommand*
+“workspace.openOutputCommand”*coc-config workspace openOutputCommand*
+
+Command used to open output channel.
+用于打开输出通道的命令。
+
+Scope: `resource`, default: `"vs"`
+作用域：`resource`，默认值：`“vs”`
+
+"workspace.openResourceCommand"				*coc-config-workspace-openResourceCommand*
+“workspace.openResourceCommand”*coc-config workspace-openResourceCommand*
+
+Command to open files that not loaded, load files as hidden buffers
+命令打开未加载的文件，将文件加载为隐藏缓冲区
+when empty.
+空的时候。
+
+Scope: `application`, default: `"tab drop"`
+作用域：`application`，默认值：`“tab drop”`
+
+"workspace.workspaceFolderCheckCwd"			*coc-config-workspace-workspaceFolderCheckCwd*
+“workspace.workspaceFolderCheckCwd”*coc-config workspace-workspaceFolderCheck Cwd*
+
+Whether the current working directory should be used first when
+当
+checking patterns match for workspace folder.
+检查工作区文件夹的模式是否匹配。
+
+Scope: `application`, default: `true`
+作用域：`application`，默认值：`true`
+
+"workspace.workspaceFolderFallbackCwd"			*coc-config-workspace-workspaceFolderFallbackCwd*
+“workspace.workspaceFolderFallbackCwd”*coc-config workspace-workspaceFolderfalbackCwd*
+
+Use current working directory as workspace folder when no root
+没有根目录时使用当前工作目录作为工作区文件夹
+patterns resolved.
+模式已解析。
+
+Scope: `application`, default: `true`
+作用域：`application`，默认值：`true`
+
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+Preferences~
+首选项~
+*coc-config-preferences*
+*coc配置首选项*
+"coc.preferences.bracketEnterImprove"			*coc-preferences-bracketEnterImprove*
+“coc.preferences.bracketEnterImprove”*coc preferences bracketEnterImprove*
+
+Improve enter inside bracket `<> {} [] ()` by add new empty line below
+通过在下面添加新的空行改进括号内的回车符`<>{}[]（）`
+and place cursor to it. Works with `coc#on_enter()`
+并将光标放在上面。使用`coc#on_enter（）`
+
+Scope: `language-overridable`, default: `true`
+作用域：“语言可重写”，默认值：“true”`
+
+"coc.preferences.currentFunctionSymbolAutoUpdate"	*coc-preferences-currentFunctionSymbolAutoUpdate*
+“coc.preferences.currentFunctionSymbolAutoUpdate”*coc-preferences currentFunctionSymbol AutoUpdate*
+
+Automatically update the value of b:coc_current_function on CursorMove
+自动更新CursorMove上b:coc_current_function的值
+event
+事件
+
+Scope: `language-overridable`, default: `false`
+作用域：“语言可重写”，默认值：“false”`
+
+"coc.preferences.currentFunctionSymbolDebounceTime"	*coc-preferences-currentFunctionSymbolDebounceTime*
+“coc.preferences.currentFunctionSymbolDebounceTime”*coc preferences currentFunctionSymbol Debouncetime*
+
+Set debounce timer for the update of b:coc_current_function on CursorMove
+为CursorMove上b:coc_current_function的更新设置去抖动计时器
+event
+事件
+
+Scope: `application`, default: `300`
+作用域：`application`，默认值：`300`
+
+"coc.preferences.enableLinkedEditing"			*coc-preferences-enableLinkedEditing*
+“coc.preferences.enableLinkedEditing”*coc-preferences enableLinkedEdit*
+
+Enable linked editing support.
+启用链接编辑支持。
+
+Scope: `language-overridable`, default: `false`
+作用域：“语言可重写”，默认值：“false”`
+
+"coc.preferences.enableMarkdown"			*coc-preferences-enableMarkdown*
+“coc.preferences.enableMarkdown”*coc-preferences enableMarkdown*
+
+Tell the language server that markdown text format is supported, note
+告诉语言服务器支持标记文本格式，注意
+that markdown text may not rendered as expected.
+标记文本可能无法按预期呈现。
+
+Scope: `application`, default: `true`
+作用域：`application`，默认值：`true`
+
+"coc.preferences.enableMessageDialog"			*coc-preferences-enableMessageDialog*
+“coc.preferences.enableMessageDialog”*coc-preferences.enableMessage对话框*
+
+Enable messages shown in notification dialog.
+启用通知对话框中显示的消息。
+
+Scope: `application`, default: `false`
+作用域：`application`，默认值：`false`
+
+"coc.preferences.excludeImageLinksInMarkdownDocument"	*coc-preferences-excludeImageLinksInMarkdownDocument*
+“coc.preferences.excludeImageLinksInMarkdownDocument”*coc-preferences excludeImageLinksInMarkdownDocument*
+
+Exclude image links from markdown text in float window.
+从浮动窗口中的标记文本中排除图像链接。
+
+Scope: `application`, default: `true`
+作用域：`application`，默认值：`true`
+
+"coc.preferences.enableGFMBreaksInMarkdownDocument"	*coc-preferences-enableGFMBreaksInmakrdownDocument*
+“coc.preferences.enableGFMBreaksInMarkdownDocument”*coc preferences enableGFMBreaks InMarkdown Document*
+
+Exclude GFM breaks in markdown document.
+在降价文档中排除GFM中断。
+
+Scope: `application`, default: `true`
+作用域：`application`，默认值：`true`
+
+"coc.preferences.extensionUpdateCheck"			*coc-preferences-extensionUpdateCheck*
+“coc.preferences.extensionUpdateCheck”*coc-preferences.extension UpdateCheck*
+
+Interval for check extension update, could be "daily", "weekly" or
+检查扩展更新的间隔，可以是“每日”、“每周”或
+"never"
+从不
+
+Scope: `application`, default: `"never"`
+作用域：`application`，默认值：`“never”`
+
+"coc.preferences.floatActions"				*coc-preferences-floatActions*
+“coc.preferences.floatActions”*coc-preferences.floateActions*
+
+Set to false to disable float/popup support for actions menu.
+设置为false可禁用对操作菜单的浮动/弹出支持。
+
+Scope: `application`, default: `true`
+作用域：`application`，默认值：`true`
+
+"coc.preferences.formatOnSave"			*coc-preferences-formatOnSave*
+“coc.preferences.formatOnSave”*coc-preferences formatOnSave*
+
+Set to true to enable formatting on save.
+设置为true可在保存时启用格式设置。
+
+Scope: `language-overridable`, default: `false`
+作用域：“语言可重写”，默认值：“false”`
+
+"coc.preferences.formatOnSaveTimeout"			*coc-preferences-formatOnSaveTimeout*
+“coc.preferences.formatOnSaveTimeout”*coc-preferences formatOnSave超时*
+
+How long before the format command run on save will time out.
+在保存时运行格式化命令需要多长时间才能超时。
+
+Scope: `language-overridable`, default: `200`
+作用域：“语言可重写”，默认值：“200”`
+
+"coc.preferences.formatOnType"				*coc-preferences-formatOnType*
+“coc.preferences.formatOnType”*coc-preferences formatOnType*
+
+Set to true to enable formatting on typing
+设置为true可在键入时启用格式设置
+
+Scope: `language-overridable`, default: `false`
+作用域：“语言可重写”，默认值：“false”`
+
+"coc.preferences.jumpCommand"				*coc-preferences-jumpCommand*
+“coc.preferences.jumpCommand”*coc-preferences jumpCommand*
+
+Command used for location jump, like goto definition, goto references 
+用于位置跳转的命令，如goto定义、goto引用
+etc. Can be also a custom command that gives file as an argument.
+等等。也可以是将文件作为参数的自定义命令。
+
+Scope: `application`, default: `"edit"`
+作用域：`application`，默认值：`edit`
+
+"coc.preferences.maxFileSize"				*coc-preferences-maxFileSize*
+“coc.preferences.maxFileSize”*coc-preferences maxFileSize*
+
+Maximum file size in bytes that coc.nvim should handle, default
+coc.nvim应处理的最大文件大小（以字节为单位），默认值
+'10MB'.
+“10MB”。
+
+Scope: `application`, default: `"10MB"`
+作用域：`application`，默认值：`“10MB”`
+
+"coc.preferences.messageLevel"				*coc-preferences-messageLevel*
+“coc.preferences.messageLevel”*coc-preferences messageLevel*
+
+Message level for filter echoed messages, could be 'more', 'warning'
+筛选回显消息的消息级别可以是“more”、“warning”
+and 'error'
+和“错误”
+
+Scope: `application`, default: `"more"`
+作用域：`application`，默认值：`more`
+
+"coc.preferences.promptInput"				*coc-preferences-promptInput*
+“coc.preferences.promptInput”*coc preferences promptInput*
+
+Use prompt buffer in float window for user input.
+使用浮动窗口中的提示缓冲区进行用户输入。
+
+Scope: `application`, default: `true`
+作用域：`application`，默认值：`true`
+
+"coc.preferences.renameFillCurrent"			*coc-preferences-renameFillCurrent*
+“coc.preferences.renameFillCurrent”*coc-preferences.rename FillCurrent*
+
+Disable to stop Refactor-Rename float/popup window from populating
+禁用以停止填充Refactor Rename float/popup窗口
+with old name in the New Name field.
+在“新名称”字段中使用旧名称。
+
+Scope: `application`, default: `true`
+作用域：`application`，默认值：`true`
+
+"coc.preferences.silentAutoupdate"			*coc-preferences-silentAutoupdate*
+“coc.preferences.silentAutoupdate”*coc-preferences.silent自动更新*
+
+Not open split window with update status when performing auto update.
+执行自动更新时，不打开具有更新状态的拆分窗口。
+
+Scope: `application`, default: `true`
+作用域：`application`，默认值：`true`
+
+"coc.preferences.useQuickfixForLocations"		*coc-preferences-useQuickfixForLocations*
+“coc.preferences.useQuickfixForLocations”*coc preferences useQuickfixForLocations*
+
+Use vim's quickfix list for jump locations, need restart on change.
+使用vim的快速修复列表跳转位置，需要在更改时重新启动。
+
+Scope: `application`, default: `false`
+作用域：`application`，默认值：`false`
+
+"coc.preferences.watchmanPath"				*coc-preferences-watchmanPath*
+“coc.preferences.watchnPath”*coc preferences watchnPth*
+
+executable path for https://facebook.github.io/watchman/, detected
+的可执行路径https://facebook.github.io/watchman/，检测到
+from $PATH by default
+默认情况下从$PATH
+
+Scope: `application`, default: `null`
+作用域：`application`，默认值：`null`
+
+"coc.preferences.willSaveHandlerTimeout"		*coc-preferences-willSaveHandlerTimeout*
+“coc.preferences.willSaveHandlerTimeout”*coc preferences willSaveHandler超时*
+
+Will save handler timeout.
+将保存处理程序超时。
+
+Scope: `application`, default: `500`
+作用域：`application`，默认值：`500`
+
+"coc.preferences.tagDefinitionTimeout" 			*coc-preferences-tagDefinitionTimeout*
+“coc.preferences.tagDefinitionTimeout”*coc-preferences tagDefinitionTimeout*
+
+The timeout of CocTagFunc.
+CocTagFunc超时。
+Scope: `application`, default: `0`
+作用域：`application`，默认值：`0`
+
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+Float configuration~
+浮子配置~
+*coc-config-float*
+*coc配置浮动*
+
+Used by `suggest.floatConfig`, `diagnostic.floatConfig`,
+由“建议.foatConfig”、“诊断.foatCnfig”使用，
+`signature.floatConfig` and `hover.floatConfig`, following properties are
+`signature.foatConfig`和`hover.foatCnfig`，以下属性为
+supported:
+支持：
+
+- "border": Change to `true` to enable border.
+-“border”：更改为“true”以启用border。
+- "rounded": Use rounded borders when border is `true`.
+-“圆角”：当边框为“true”时，使用圆角边框。
+- "highlight": Background highlight group of float window, default:
+-“highlight”：浮动窗口的背景高亮组，默认值：
+`"CocFloating"`.
+`“CocFloating”`。
+- "title": Title text used by float window, default: `""`.
+-“title”：浮动窗口使用的标题文本，默认值：`“”`。
+- "borderhighlight": Border highlight group of float window, default:
+-“borderhighlight”：浮动窗口的边框高亮显示组，默认值：
+`"CocFloating"`.
+`“CocFloating”`。
+- "close": Set to `true` to draw close icon.
+-“关闭”：设置为“true”以绘制关闭图标。
+- "maxWidth": Maximum width of float window, contains border.
+-“maxWidth”：浮动窗口的最大宽度，包含边框。
+- "maxHeight": Maximum height of float window, contains border.
+-“maxHeight”：浮动窗口的最大高度，包含边框。
+- "winblend": Set 'winblend' option of window, neovim only, default:
+-“winblend”：设置窗口的“winbled”选项，仅限neovim，默认值：
+`0`.
+`0`.
+- "focusable": Set to false to make window not focusable, neovim only.
+-“focusable”：设置为false使窗口不可聚焦，仅限neovim。
+- "shadow": Set to true to enable shadow, neovim only.
+-“shadow”：设置为true可启用shadow，仅限neovim。
+
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+Languageserver~
+语言服务器~
+*coc-config-languageserver*
+*coc配置语言服务器*
+
+Dictionary of Language Servers, key is the ID of corresponding server,
+语言服务器词典，关键字是相应服务器的ID，
+and value is configuration of languageserver. Default: `{}`
+值为语言服务器的配置。违约
+
+Properties of languageserver configuration:
+语言服务器配置的属性：
+
+- "enable": Change to `false` to disable that languageserver.
+-“enable”：更改为“false”以禁用该语言服务器。
+
+- "filetypes": Supported filetypes, add * in array for all filetypes.
+-“filetypes”：支持的文件类型，在数组中为所有文件类型添加*。
+Note: it's required for start the languageserver, please make sure
+注意：这是启动语言服务器所必需的，请确保
+your filetype is expected by `:CocCommand document.echoFiletype` command
+“：CocCommand document.echoFiletype”命令需要您的文件类型
+
+- 'maxRestartCount': Maximum restart count when server closed in the
+-“maxRestartCount”：中服务器关闭时的最大重新启动计数
+last 3 minutes, default to `4`.
+最后3分钟，默认为“4”。
+
+- "additionalSchemes": Additional URI schemes, default schemes
+-“additionalSchemes”：其他URI方案，默认方案
+including file & untitled.
+包括文件和无标题。
+Note: you have to setup vim provide content for custom URI as well.
+注意：您还必须设置vim为自定义URI提供内容。
+
+- "cwd": Working directory used to start languageserver, vim's cwd is
+-“cwd”：用于启动languageserver的工作目录，vim的cwd为
+used by default.
+默认情况下使用。
+
+- "env": Environment variables for child process.
+-“env”：子进程的环境变量。
+
+- "settings": Settings for languageserver, received on server
+-“settings”：语言服务器的设置，在服务器上接收
+initialization.
+初始化。
+
+- "trace.server": Trace level of communication between server and
+-“trace.server”：跟踪服务器和之间的通信级别
+client that showed with output channel, open output channel by
+显示输出通道的客户端，打开输出通道的方式
+command `:CocCommand workspace.showOutput`
+命令`：CocCommand工作区.showOutput`
+
+- "stdioEncoding": Encoding used for stdio of child process.
+-“stdioEncoding”：用于子进程的stdio的编码。
+
+- "initializationOptions": Initialization options passed to
+-“initializationOptions”：初始化选项传递给
+languageserver (it's deprecated)
+languageserver（已弃用）
+
+- "rootPatterns": Root patterns used to resolve rootPath from current
+-“rootPatterns”：用于解析当前rootPath的根模式
+file.
+文件
+
+- "requireRootPattern": If true, doesn't start server when root
+-“requireRootPattern”：如果为true，则在root时不启动服务器
+pattern not found.
+找不到模式。
+
+- "ignoredRootPaths": Absolute root paths that language server should
+-“ignoredRootPaths”：语言服务器应该使用的绝对根路径
+not use as rootPath, higher priority than rootPatterns.
+不用作rootPath，优先级高于rootPatterns。
+
+- "disableDynamicRegister": Disable dynamic registerCapability feature
+-“disableDynamicRegister”：禁用动态寄存器能力功能
+for this languageserver to avoid duplicated feature registration.
+以避免重复的功能注册。
+
+- "disableSnippetCompletion": Disable snippet completion feature for
+-“disableSnippetCompletion”：禁用的代码段完成功能
+this languageserver.
+这个语言服务器。
+
+- "disabledFeatures": Disable features for this languageserver,
+-“disabledFeatures”：禁用此语言服务器的功能，
+valid keys:
+有效密钥：
+>
+>
+["completion", "configuration", "workspaceFolders", "diagnostics",
+[“完成”、“配置”、“工作空间文件夹”、“诊断”，
+"willSave", "willSaveUntil", "didSaveTextDocument",
+“willSave”、“willSaveUntil”、“didSaveTextDocument”，
+"fileSystemWatcher", "hover", "signatureHelp", "definition",
+“fileSystemWatcher”，“hover”，“signatureHelp”，“definition”，
+"references", "documentHighlight", "documentSymbol",
+“references”、“documentHighlight”、“documentSymbol”，
+"workspaceSymbol", "codeAction", "codeLens", "formatting",
+“workspaceSymbol”，“codeAction”，“codeLens”，“格式化”，
+"documentFormatting", "documentRangeFormatting",
+“documentFormatting”，“documentRangeFormat”，
+"documentOnTypeFormatting", "rename", "documentLink",
+“documentOnTypeFormatting”，“rename”，“documentLink”，
+"executeCommand", "pullConfiguration", "typeDefinition",
+“executeCommand”、“pullConfiguration”、“typeDefinition”，
+"implementation", "declaration", "color", "foldingRange",
+“实现”、“声明”、“颜色”、“foldingRange”，
+"selectionRange", "progress", "callHierarchy", "linkedEditing",
+“selectionRange”、“progress”、“callHierarchy”、“linkedEditing”，
+"fileEvents", "semanticTokens"]
+“fileEvents”，“semanticTokens”]
+<
+<
+- "formatterPriority": Priority of this languageserver's formatter.
+-“formatterPriority”：此语言服务器的格式化程序的优先级。
+
+- "revealOutputChannelOn": Configure message level to show the output
+-“revealOutputChannelOn”：配置消息级别以显示输出
+channel buffer.
+通道缓冲区。
+
+- "progressOnInitialization": Enable progress report on languageserver
+-“progressOnInitialization”：在语言服务器上启用进度报告
+initialize.
+初始化。
+
+Language server start with command:~
+语言服务器以命令开头：~
+
+Additional fields can be used for a command languageserver:
+命令语言服务器可以使用其他字段：
+
+- "command": Executable program name in $PATH or absolute path of
+-“command”：$PATH中的可执行程序名或的绝对路径
+executable used for start languageserver.
+用于启动语言服务器的可执行文件。
+
+- "args": Command line arguments of command.
+-“args”：命令的命令行参数。
+
+- "detached": Detach language server when is true.
+-“detached”：当为true时，分离语言服务器。
+
+- "shell": Use shell for server process, default: `false`
+-“shell”：将shell用于服务器进程，默认值：`false`
+
+Language server start with module:~
+语言服务器从模块开始：~
+
+Additional fields can be used for a languageserver started by node
+其他字段可用于节点启动的语言服务器
+module:
+单元
+
+- "module": Absolute filepath of Javascript file.
+-“module”：Javascript文件的绝对文件路径。
+
+- "args": Extra arguments used on fork Javascript module.
+-“args”：fork-Javascript模块上使用的额外参数。
+
+- "runtime": Absolute path of node runtime, node runtime of coc.nvim
+-“runtime”：节点运行时的绝对路径，coc.nvim的节点运行时
+is used by default.
+默认情况下使用。
+
+- "execArgv": ARGV passed to node on fork, normally used for
+-“execArgv”：ARGV传递到fork上的节点，通常用于
+debugging, example: `["--nolazy", "--inspect-brk=6045"]`
+调试，示例：`[“--nolazy”，“--inspect brk=6045”]`
+
+- "transport": Transport kind used by server, could be 'ipc', 'stdio',
+-“transport”：服务器使用的传输类型，可以是“ipc”、“stdio”、，
+'socket' and 'pipe'. 'ipc' is used by default (recommended).
+“插座”和“管道”ipc’在默认情况下使用（推荐）。
+
+- "transportPort": Port number used when transport is 'socket'.
+-“transportPort”：当传输为“socket”时使用的端口号。
+
+Language server use initialized socket server:~
+语言服务器使用初始化的套接字服务器：~
+
+- "port": Port number of socket server.
+-“port”：套接字服务器的端口号。
+
+- "host": Host of socket server, default to `127.0.0.1`.
+-“host”：套接字服务器的主机，默认为“127.0.0.1”。
+
+==============================================================================
+==============================================================================
+vim:tw=78:nosta:noet:ts=8:sts=0:ft=help:noet:fen:
+vim:tw=78:nosta:noet:ts=8:sts=0:ft=help:noet:fen:

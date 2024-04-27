@@ -1,0 +1,17 @@
+<map id="__gnu_pbds::detail::maybe_null_type&lt; Key, Mapped, _Alloc, Store_Hash &gt;" name="__gnu_pbds::detail::maybe_null_type&lt; Key, Mapped, _Alloc, Store_Hash &gt;">
+<area shape="rect" id="Node000001" title="Base class for conditionally defining a static data member." alt="" coords="5,229,177,293"/>
+<area shape="rect" id="Node000002" href="$a13161.html" title=" " alt="" coords="225,144,391,195"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="181,220,245,193,247,198,183,225"/>
+<area shape="rect" id="Node000006" href="$a13161.html" title="Traits for abstract types." alt="" coords="230,276,386,340"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="193,281,230,289,229,294,192,286"/>
+<area shape="rect" id="Node000003" href="$a13393.html" title="list&#45;based (with updates) associative container. Skip to the lu, my darling." alt="" coords="456,5,627,69"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="354,133,437,79,460,67,462,72,440,84,357,137"/>
+<area shape="rect" id="Node000004" href="$a13421.html" title="Ordered&#45;vector tree associative&#45;container." alt="" coords="456,93,627,157"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="406,148,455,139,456,144,407,153"/>
+<area shape="rect" id="Node000005" href="$a13441.html" title="PATRICIA trie." alt="" coords="462,181,621,245"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="406,185,462,196,461,201,405,190"/>
+<area shape="rect" id="Node000007" href="$a13269.html" title=" " alt="" coords="442,269,641,347"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="401,305,441,305,441,311,401,311"/>
+<area shape="rect" id="Node000008" href="$a13293.html" title=" " alt="" coords="439,371,644,448"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="398,344,452,368,449,372,396,349"/>
+</map>

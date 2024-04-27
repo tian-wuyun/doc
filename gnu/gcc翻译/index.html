@@ -1,0 +1,673 @@
+<body lang="en_US">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<p>此文件记录了 GNU 编译器的使用。
+ </p>
+<p>版权所有 © 1988-2023 Free Software Foundation， Inc.
+ </p>
+<p>授予复制、分发和/或修改本文档的权限
+根据 GNU 自由文档许可证 1.3 版的条款，或
+自由软件基金会发布的任何更高版本;使用
+固定部分是“资助自由软件”，封面
+文本为（a）（见下文），封底文本为（b）
+（见下文）。 许可证的副本包含在标题为“”的部分中
+“GNU 自由文档许可证”。
+ </p>
+<p>（a） 自由软件基金会的封面文字是：
+ </p>
+<blockquote class="quotation">
+<p>GNU手册
+ </p></blockquote>
+
+<p>（b） 自由软件基金会的封底文字为：
+ </p>
+<blockquote class="quotation">
+<p>您可以自由复制和修改本 GNU 手册，例如 GNU
+     软件。 自由软件基金会发布的副本筹集
+     GNU开发资金。
+ </p></blockquote>
+<br>
+
+<div class="element-shortcontents" id="SEC_Shortcontents">
+<h2 class="shortcontents-heading">简短目录 </h2>
+
+<div class="shortcontents">
+<ul class="toc-numbered-mark">
+<li><a id="stoc-Programming-Languages-Supported-by-GCC" href="#toc-Programming-Languages-Supported-by-GCC">1 GCC 支持的编程语言 </a></li>
+<li><a id="stoc-Language-Standards-Supported-by-GCC" href="#toc-Language-Standards-Supported-by-GCC">GCC 支持的 2 种语言标准 </a></li>
+<li><a id="stoc-GCC-Command-Options" href="#toc-GCC-Command-Options">3 GCC 命令选项 </a></li>
+<li><a id="stoc-C-Implementation_002dDefined-Behavior" href="#toc-C-Implementation_002dDefined-Behavior">4 C 实现定义的行为 </a></li>
+<li><a id="stoc-C_002b_002b-Implementation_002dDefined-Behavior" href="#toc-C_002b_002b-Implementation_002dDefined-Behavior">5 C++ 实现定义的行为 </a></li>
+<li><a id="stoc-Extensions-to-the-C-Language-Family" href="#toc-Extensions-to-the-C-Language-Family">6 C 语言系列的扩展 </a></li>
+<li><a id="stoc-Extensions-to-the-C_002b_002b-Language" href="#toc-Extensions-to-the-C_002b_002b-Language">7 C++ 语言的扩展 </a></li>
+<li><a id="stoc-GNU-Objective_002dC-Features" href="#toc-GNU-Objective_002dC-Features">8 GNU Objective-C 特性 </a></li>
+<li><a id="stoc-Binary-Compatibility" href="#toc-Binary-Compatibility">9 二进制兼容性 </a></li>
+<li><a id="stoc-gcov_002d_002d_002da-Test-Coverage-Program" href="#toc-gcov_002d_002d_002da-Test-Coverage-Program">10  <code class="command">gcov</code>- 测试覆盖率计划 </a></li>
+<li><a id="stoc-gcov_002dtool_002d_002d_002dan-Offline-Gcda-Profile-Processing-Tool" href="#toc-gcov_002dtool_002d_002d_002dan-Offline-Gcda-Profile-Processing-Tool">11  <code class="command">gcov-tool</code>- 离线 Gcda 配置文件处理工具 </a></li>
+<li><a id="stoc-gcov_002ddump_002d_002d_002dan-Offline-Gcda-and-Gcno-Profile-Dump-Tool" href="#toc-gcov_002ddump_002d_002d_002dan-Offline-Gcda-and-Gcno-Profile-Dump-Tool">12  <code class="command">gcov-dump</code>- 脱机 gcda 和 gcno 配置文件转储工具 </a></li>
+<li><a id="stoc-lto_002ddump_002d_002d_002dTool-for-dumping-LTO-object-files_002e" href="#toc-lto_002ddump_002d_002d_002dTool-for-dumping-LTO-object-files_002e">13  <code class="command">lto-dump</code>- 用于转储 LTO 对象文件的工具。 </a></li>
+<li><a id="stoc-Known-Causes-of-Trouble-with-GCC" href="#toc-Known-Causes-of-Trouble-with-GCC">GCC 问题的 14 个已知原因 </a></li>
+<li><a id="stoc-Reporting-Bugs" href="#toc-Reporting-Bugs">15 报告错误 </a></li>
+<li><a id="stoc-How-To-Get-Help-with-GCC" href="#toc-How-To-Get-Help-with-GCC">16 如何获得 GCC 的帮助 </a></li>
+<li><a id="stoc-Contributing-to-GCC-Development" href="#toc-Contributing-to-GCC-Development">17 为海湾合作委员会的发展做出贡献 </a></li>
+<li><a id="stoc-Funding-Free-Software" href="#toc-Funding-Free-Software">资助自由软件 </a></li>
+<li><a id="stoc-The-GNU-Project-and-GNU_002fLinux" href="#toc-The-GNU-Project-and-GNU_002fLinux">GNU 工程和 GNU/Linux </a></li>
+<li><a id="stoc-GNU-General-Public-License" href="#toc-GNU-General-Public-License">GNU 通用公共许可证 </a></li>
+<li><a id="stoc-GNU-Free-Documentation-License-1" href="#toc-GNU-Free-Documentation-License-1">GNU 自由文档许可证 </a></li>
+<li><a id="stoc-Contributors-to-GCC" href="#toc-Contributors-to-GCC">GCC 的贡献者 </a></li>
+<li><a id="stoc-Indices-1" href="#toc-Indices-1">附录 A 指数 </a></li>
+</ul>
+</div>
+</div>
+<div class="element-contents" id="SEC_Contents">
+<h2 class="contents-heading">目录 </h2>
+
+<div class="contents">
+
+<ul class="toc-numbered-mark">
+  <li><a id="toc-Programming-Languages-Supported-by-GCC" href="G_002b_002b-and-GCC.html">1 GCC 支持的编程语言 </a></li>
+  <li><a id="toc-Language-Standards-Supported-by-GCC" href="Standards.html">GCC 支持的 2 种语言标准 </a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-C-Language" href="Standards.html#C-Language">2.1 C语言 </a></li>
+    <li><a id="toc-C_002b_002b-Language" href="Standards.html#C_002b_002b-Language">2.2 C++语言 </a></li>
+    <li><a id="toc-Objective_002dC-and-Objective_002dC_002b_002b-Languages" href="Standards.html#Objective_002dC-and-Objective_002dC_002b_002b-Languages">2.3 Objective-C和Objective-C++语言 </a></li>
+    <li><a id="toc-Go-Language" href="Standards.html#Go-Language">2.4 Go 语言 </a></li>
+    <li><a id="toc-D-language" href="Standards.html#D-language">2.5 D语言 </a></li>
+    <li><a id="toc-References-for-Other-Languages" href="Standards.html#References-for-Other-Languages">2.6 其他语言的参考资料 </a></li>
+  </ul></li>
+  <li><a id="toc-GCC-Command-Options" href="Invoking-GCC.html">3 GCC 命令选项 </a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-Option-Summary-1" href="Option-Summary.html">3.1 选项摘要 </a></li>
+    <li><a id="toc-Options-Controlling-the-Kind-of-Output" href="Overall-Options.html">3.2 控制输出类型的选项 </a></li>
+    <li><a id="toc-Compiling-C_002b_002b-Programs" href="Invoking-G_002b_002b.html">3.3 编译 C++ 程序 </a></li>
+    <li><a id="toc-Options-Controlling-C-Dialect" href="C-Dialect-Options.html">3.4 控制 C 方言的选项 </a></li>
+    <li><a id="toc-Options-Controlling-C_002b_002b-Dialect" href="C_002b_002b-Dialect-Options.html">3.5 控制 C++ 方言的选项 </a></li>
+    <li><a id="toc-Options-Controlling-Objective_002dC-and-Objective_002dC_002b_002b-Dialects" href="Objective_002dC-and-Objective_002dC_002b_002b-Dialect-Options.html">3.6 控制 Objective-C 和 Objective-C++ 方言的选项 </a></li>
+    <li><a id="toc-Options-to-Control-Diagnostic-Messages-Formatting" href="Diagnostic-Message-Formatting-Options.html">3.7 控制诊断消息格式的选项 </a></li>
+    <li><a id="toc-Options-to-Request-or-Suppress-Warnings" href="Warning-Options.html">3.8 请求或禁止警告的选项 </a></li>
+    <li><a id="toc-Options-That-Control-Static-Analysis" href="Static-Analyzer-Options.html">3.9 控制静态分析的选项 </a></li>
+    <li><a id="toc-Options-for-Debugging-Your-Program" href="Debugging-Options.html">3.10 调试程序的选项 </a></li>
+    <li><a id="toc-Options-That-Control-Optimization" href="Optimize-Options.html">3.11 控制优化的选项 </a><div></div><div></div></li>
+    <li><a id="toc-Program-Instrumentation-Options" href="Instrumentation-Options.html">3.12 程序仪器选项 </a></li>
+    <li><a id="toc-Options-Controlling-the-Preprocessor" href="Preprocessor-Options.html">3.13 控制预处理器的选项 </a></li>
+    <li><a id="toc-Passing-Options-to-the-Assembler" href="Assembler-Options.html">3.14 将选项传递给汇编程序 </a></li>
+    <li><a id="toc-Options-for-Linking" href="Link-Options.html">3.15 链接选项 </a></li>
+    <li><a id="toc-Options-for-Directory-Search" href="Directory-Options.html">3.16 目录搜索选项 </a></li>
+    <li><a id="toc-Options-for-Code-Generation-Conventions" href="Code-Gen-Options.html">3.17 代码生成约定的选项 </a></li>
+    <li><a id="toc-GCC-Developer-Options" href="Developer-Options.html">3.18 GCC 开发者选项 </a></li>
+    <li><a id="toc-Machine_002dDependent-Options" href="Submodel-Options.html">3.19 与机器相关的选项 </a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-AArch64-Options-1" href="AArch64-Options.html">3.19.1 AArch64 选项 </a>
+      <ul class="toc-numbered-mark">
+        <li><a id="toc-_002dmarch-and-_002dmcpu-Feature-Modifiers" href="AArch64-Options.html#g_t_002dmarch-and-_002dmcpu-Feature-Modifiers">3.19.1.1  <samp class="option">-三月 </samp> 和  <samp class="option">-MCPU </samp> 特征修饰符 </a></li>
+      </ul></li>
+      <li><a id="toc-Adapteva-Epiphany-Options-1" href="Adapteva-Epiphany-Options.html">3.19.2 Adapteva Epiphany 选项 </a></li>
+      <li><a id="toc-AMD-GCN-Options-1" href="AMD-GCN-Options.html">3.19.3 AMD GCN选项 </a></li>
+      <li><a id="toc-ARC-Options-1" href="ARC-Options.html">3.19.4 ARC选项 </a></li>
+      <li><a id="toc-ARM-Options-1" href="ARM-Options.html">3.19.5 ARM 选项 </a></li>
+      <li><a id="toc-AVR-Options-1" href="AVR-Options.html">3.19.6 AVR选项 </a>
+      <ul class="toc-numbered-mark">
+        <li><a id="toc-EIND-and-Devices-with-More-Than-128-Ki-Bytes-of-Flash" href="AVR-Options.html#EIND-and-Devices-with-More-Than-128-Ki-Bytes-of-Flash">3.19.6.1  <code class="code">EIND</code> 以及闪存超过 128 KB 的设备 </a></li>
+        <li><a id="toc-Handling-of-the-RAMPD_002c-RAMPX_002c-RAMPY-and-RAMPZ-Special-Function-Registers" href="AVR-Options.html#Handling-of-the-RAMPD_002c-RAMPX_002c-RAMPY-and-RAMPZ-Special-Function-Registers">3.19.6.2 处理  <code class="code">RAMPD</code>，  <code class="code">RAMPX</code>，  <code class="code">RAMPY</code> 和  <code class="code">RAMPZ</code> 特殊功能寄存器 </a></li>
+        <li><a id="toc-AVR-Built_002din-Macros" href="AVR-Options.html#AVR-Built_002din-Macros">3.19.6.3 AVR内置宏 </a></li>
+      </ul></li>
+      <li><a id="toc-Blackfin-Options-1" href="Blackfin-Options.html">3.19.7 黑鳍金枪鱼选项 </a></li>
+      <li><a id="toc-C6X-Options-1" href="C6X-Options.html">3.19.8 C6X选项 </a></li>
+      <li><a id="toc-CRIS-Options-1" href="CRIS-Options.html">3.19.9 CRIS选项 </a></li>
+      <li><a id="toc-C_002dSKY-Options-1" href="C_002dSKY-Options.html">3.19.10 C-SKY选项 </a></li>
+      <li><a id="toc-Darwin-Options-1" href="Darwin-Options.html">3.19.11 达尔文期权 </a></li>
+      <li><a id="toc-DEC-Alpha-Options-1" href="DEC-Alpha-Options.html">3.19.12 DEC Alpha 选项 </a></li>
+      <li><a id="toc-eBPF-Options-1" href="eBPF-Options.html">3.19.13 eBPF 选项 </a></li>
+      <li><a id="toc-FR30-Options-1" href="FR30-Options.html">3.19.14 FR30选项 </a></li>
+      <li><a id="toc-FT32-Options-1" href="FT32-Options.html">3.19.15 FT32选项 </a></li>
+      <li><a id="toc-FRV-Options-1" href="FRV-Options.html">3.19.16 FRV 选项 </a></li>
+      <li><a id="toc-GNU_002fLinux-Options-1" href="GNU_002fLinux-Options.html">3.19.17 GNU/Linux 选项 </a></li>
+      <li><a id="toc-H8_002f300-Options-1" href="H8_002f300-Options.html">3.19.18 H8/300 选项 </a></li>
+      <li><a id="toc-HPPA-Options-1" href="HPPA-Options.html">3.19.19 HPPA选项 </a></li>
+      <li><a id="toc-IA_002d64-Options-1" href="IA_002d64-Options.html">3.19.20 IA-64选项 </a></li>
+      <li><a id="toc-LM32-Options-1" href="LM32-Options.html">3.19.21 LM32 选项 </a></li>
+      <li><a id="toc-LoongArch-Options-1" href="LoongArch-Options.html">3.19.22 LoongArch 选项 </a></li>
+      <li><a id="toc-M32C-Options-1" href="M32C-Options.html">3.19.23 M32C选项 </a></li>
+      <li><a id="toc-M32R_002fD-Options-1" href="M32R_002fD-Options.html">3.19.24 M32R/D 选项 </a></li>
+      <li><a id="toc-M680x0-Options-1" href="M680x0-Options.html">3.19.25 M680x0 选项 </a></li>
+      <li><a id="toc-MCore-Options-1" href="MCore-Options.html">3.19.26 MCore 选项 </a></li>
+      <li><a id="toc-MicroBlaze-Options-1" href="MicroBlaze-Options.html">3.19.27 MicroBlaze 选项 </a></li>
+      <li><a id="toc-MIPS-Options-1" href="MIPS-Options.html">3.19.28 MIPS选项 </a></li>
+      <li><a id="toc-MMIX-Options-1" href="MMIX-Options.html">3.19.29 MMIX选项 </a></li>
+      <li><a id="toc-MN10300-Options-1" href="MN10300-Options.html">3.19.30 MN10300选项 </a></li>
+      <li><a id="toc-Moxie-Options-1" href="Moxie-Options.html">3.19.31 Moxie选项 </a></li>
+      <li><a id="toc-MSP430-Options-1" href="MSP430-Options.html">3.19.32 MSP430 选项 </a></li>
+      <li><a id="toc-NDS32-Options-1" href="NDS32-Options.html">3.19.33 NDS32选项 </a></li>
+      <li><a id="toc-Nios-II-Options-1" href="Nios-II-Options.html">3.19.34 Nios II 选项 </a></li>
+      <li><a id="toc-Nvidia-PTX-Options-1" href="Nvidia-PTX-Options.html">3.19.35 Nvidia PTX选项 </a></li>
+      <li><a id="toc-OpenRISC-Options-1" href="OpenRISC-Options.html">3.19.36 OpenRISC选项 </a></li>
+      <li><a id="toc-PDP_002d11-Options-1" href="PDP_002d11-Options.html">3.19.37 PDP-11选项 </a></li>
+      <li><a id="toc-PowerPC-Options-1" href="PowerPC-Options.html">3.19.38 PowerPC选项 </a></li>
+      <li><a id="toc-PRU-Options-1" href="PRU-Options.html">3.19.39 PRU 选项 </a></li>
+      <li><a id="toc-RISC_002dV-Options-1" href="RISC_002dV-Options.html">3.19.40 RISC-V选项 </a></li>
+      <li><a id="toc-RL78-Options-1" href="RL78-Options.html">3.19.41 RL78选项 </a></li>
+      <li><a id="toc-IBM-RS_002f6000-and-PowerPC-Options" href="RS_002f6000-and-PowerPC-Options.html">3.19.42 IBM RS/6000 和 PowerPC 选项 </a></li>
+      <li><a id="toc-RX-Options-1" href="RX-Options.html">3.19.43 RX选项 </a></li>
+      <li><a id="toc-S_002f390-and-zSeries-Options-1" href="S_002f390-and-zSeries-Options.html">3.19.44 S/390 和 zSeries 选项 </a></li>
+      <li><a id="toc-SH-Options-1" href="SH-Options.html">3.19.45 SH选项 </a></li>
+      <li><a id="toc-Solaris-2-Options-1" href="Solaris-2-Options.html">3.19.46 Solaris 2 选项 </a></li>
+      <li><a id="toc-SPARC-Options-1" href="SPARC-Options.html">3.19.47 SPARC 选项 </a></li>
+      <li><a id="toc-Options-for-System-V" href="System-V-Options.html">3.19.48 System V 的选项 </a></li>
+      <li><a id="toc-V850-Options-1" href="V850-Options.html">3.19.49 V850选项 </a></li>
+      <li><a id="toc-VAX-Options-1" href="VAX-Options.html">3.19.50 VAX选项 </a></li>
+      <li><a id="toc-Visium-Options-1" href="Visium-Options.html">3.19.51 Visium 选项 </a></li>
+      <li><a id="toc-VMS-Options-1" href="VMS-Options.html">3.19.52 VMS 选项 </a></li>
+      <li><a id="toc-VxWorks-Options-1" href="VxWorks-Options.html">3.19.53 VxWorks 选项 </a></li>
+      <li><a id="toc-x86-Options-1" href="x86-Options.html">3.19.54 x86 </a></li>
+      <li><a id="toc-x86-Windows-Options-1" href="x86-Windows-Options.html">3.19.55 x86 Windows选项 </a></li>
+      <li><a id="toc-Xstormy16-Options-1" href="Xstormy16-Options.html">3.19.56 Xstormy16选项 </a></li>
+      <li><a id="toc-Xtensa-Options-1" href="Xtensa-Options.html">3.19.57 Xtensa 选项 </a></li>
+      <li><a id="toc-zSeries-Options-1" href="zSeries-Options.html">3.19.58 zSeries 选项 </a></li>
+    </ul></li>
+    <li><a id="toc-Specifying-Subprocesses-and-the-Switches-to-Pass-to-Them" href="Spec-Files.html">3.20 指定子进程和要传递给它们的开关 </a></li>
+    <li><a id="toc-Environment-Variables-Affecting-GCC" href="Environment-Variables.html">3.21 影响GCC的环境变量 </a></li>
+    <li><a id="toc-Using-Precompiled-Headers" href="Precompiled-Headers.html">3.22 使用预编译标头 </a></li>
+    <li><a id="toc-C_002b_002b-Modules-1" href="C_002b_002b-Modules.html">3.23 C++ 模块 </a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-Module-Mapper" href="C_002b_002b-Module-Mapper.html">3.23.1 模块映射器 </a></li>
+      <li><a id="toc-Module-Preprocessing" href="C_002b_002b-Module-Preprocessing.html">3.23.2 模块预处理 </a></li>
+      <li><a id="toc-Compiled-Module-Interface" href="C_002b_002b-Compiled-Module-Interface.html">3.23.3 编译模块接口 </a></li>
+    </ul></li>
+  </ul></li>
+  <li><a id="toc-C-Implementation_002dDefined-Behavior" href="C-Implementation.html">4 C 实现定义的行为 </a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-Translation" href="Translation-implementation.html">4.1 翻译 </a></li>
+    <li><a id="toc-Environment" href="Environment-implementation.html">4.2 环境 </a></li>
+    <li><a id="toc-Identifiers" href="Identifiers-implementation.html">4.3 标识符 </a></li>
+    <li><a id="toc-Characters" href="Characters-implementation.html">4.4 角色 </a></li>
+    <li><a id="toc-Integers" href="Integers-implementation.html">4.5 整数 </a></li>
+    <li><a id="toc-Floating-Point" href="Floating-point-implementation.html">4.6 浮点 </a></li>
+    <li><a id="toc-Arrays-and-Pointers" href="Arrays-and-pointers-implementation.html">4.7 数组和指针 </a></li>
+    <li><a id="toc-Hints" href="Hints-implementation.html">4.8 提示 </a></li>
+    <li><a id="toc-Structures_002c-Unions_002c-Enumerations_002c-and-Bit_002dFields" href="Structures-unions-enumerations-and-bit_002dfields-implementation.html">4.9 结构、联合、枚举和位字段 </a></li>
+    <li><a id="toc-Qualifiers" href="Qualifiers-implementation.html">4.10 预选赛 </a></li>
+    <li><a id="toc-Declarators" href="Declarators-implementation.html">4.11 声明者 </a></li>
+    <li><a id="toc-Statements" href="Statements-implementation.html">4.12 声明 </a></li>
+    <li><a id="toc-Preprocessing-Directives" href="Preprocessing-directives-implementation.html">4.13 预处理指令 </a></li>
+    <li><a id="toc-Library-Functions" href="Library-functions-implementation.html">4.14 库函数 </a></li>
+    <li><a id="toc-Architecture" href="Architecture-implementation.html">4.15 体系结构 </a></li>
+    <li><a id="toc-Locale_002dSpecific-Behavior" href="Locale_002dspecific-behavior-implementation.html">4.16 特定于语言环境的行为 </a></li>
+  </ul></li>
+  <li><a id="toc-C_002b_002b-Implementation_002dDefined-Behavior" href="C_002b_002b-Implementation.html">5 C++ 实现定义的行为 </a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-Conditionally_002dSupported-Behavior" href="Conditionally_002dsupported-behavior.html">5.1 条件支持的行为 </a></li>
+    <li><a id="toc-Exception-Handling" href="Exception-handling.html">5.2 异常处理 </a></li>
+  </ul></li>
+  <li><a id="toc-Extensions-to-the-C-Language-Family" href="C-Extensions.html">6 C 语言系列的扩展 </a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-Statements-and-Declarations-in-Expressions" href="Statement-Exprs.html">6.1 表达式中的语句和声明 </a></li>
+    <li><a id="toc-Locally-Declared-Labels" href="Local-Labels.html">6.2 本地声明的标签 </a></li>
+    <li><a id="toc-Labels-as-Values-1" href="Labels-as-Values.html">6.3 标签作为值 </a></li>
+    <li><a id="toc-Nested-Functions-1" href="Nested-Functions.html">6.4 嵌套函数 </a></li>
+    <li><a id="toc-Nonlocal-Gotos-1" href="Nonlocal-Gotos.html">6.5 非本地 Gotos </a></li>
+    <li><a id="toc-Constructing-Function-Calls" href="Constructing-Calls.html">6.6 构造函数调用 </a></li>
+    <li><a id="toc-Referring-to-a-Type-with-typeof" href="Typeof.html">6.7 引用  <code class="code">typeof</code></a></li>
+    <li><a id="toc-Conditionals-with-Omitted-Operands" href="Conditionals.html">6.8 省略操作数的条件 </a></li>
+    <li><a id="toc-128_002dbit-Integers" href="_005f_005fint128.html">6.9 128 位整数 </a></li>
+    <li><a id="toc-Double_002dWord-Integers" href="Long-Long.html">6.10 双字整数 </a></li>
+    <li><a id="toc-Complex-Numbers" href="Complex.html">6.11 复数 </a></li>
+    <li><a id="toc-Additional-Floating-Types" href="Floating-Types.html">6.12 其他浮动类型 </a></li>
+    <li><a id="toc-Half_002dPrecision-Floating-Point" href="Half_002dPrecision.html">6.13 半精度浮点 </a></li>
+    <li><a id="toc-Decimal-Floating-Types" href="Decimal-Float.html">6.14 十进制浮点类型 </a></li>
+    <li><a id="toc-Hex-Floats-1" href="Hex-Floats.html">6.15 六角浮球 </a></li>
+    <li><a id="toc-Fixed_002dPoint-Types" href="Fixed_002dPoint.html">6.16 定点类型 </a></li>
+    <li><a id="toc-Named-Address-Spaces-1" href="Named-Address-Spaces.html">6.17 命名地址空间 </a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-AVR-Named-Address-Spaces-1" href="Named-Address-Spaces.html#AVR-Named-Address-Spaces-1">6.17.1 AVR 命名地址空间 </a></li>
+      <li><a id="toc-M32C-Named-Address-Spaces" href="Named-Address-Spaces.html#M32C-Named-Address-Spaces">6.17.2 M32C 命名地址空间 </a></li>
+      <li><a id="toc-PRU-Named-Address-Spaces" href="Named-Address-Spaces.html#PRU-Named-Address-Spaces">6.17.3 PRU 命名地址空间 </a></li>
+      <li><a id="toc-RL78-Named-Address-Spaces" href="Named-Address-Spaces.html#RL78-Named-Address-Spaces">6.17.4 RL78 命名地址空间 </a></li>
+      <li><a id="toc-x86-Named-Address-Spaces" href="Named-Address-Spaces.html#x86-Named-Address-Spaces">6.17.5 x86 命名地址空间 </a></li>
+    </ul></li>
+    <li><a id="toc-Arrays-of-Length-Zero" href="Zero-Length.html">6.18 长度为零的数组 </a></li>
+    <li><a id="toc-Structures-with-No-Members" href="Empty-Structures.html">6.19 没有成员的结构 </a></li>
+    <li><a id="toc-Arrays-of-Variable-Length" href="Variable-Length.html">6.20 可变长度数组 </a></li>
+    <li><a id="toc-Macros-with-a-Variable-Number-of-Arguments_002e" href="Variadic-Macros.html">6.21 具有可变参数数量的宏。 </a></li>
+    <li><a id="toc-Slightly-Looser-Rules-for-Escaped-Newlines" href="Escaped-Newlines.html">6.22 转义换行符的规则稍宽松 </a></li>
+    <li><a id="toc-Non_002dLvalue-Arrays-May-Have-Subscripts" href="Subscripting.html">6.23 非左值数组可以有下标 </a></li>
+    <li><a id="toc-Arithmetic-on-void_002d-and-Function_002dPointers" href="Pointer-Arith.html">6.24 算术  <code class="code">void</code>- 和函数指针 </a></li>
+    <li><a id="toc-Pointer-Arguments-in-Variadic-Functions" href="Variadic-Pointer-Args.html">6.25 变调函数中的指针参数 </a></li>
+    <li><a id="toc-Pointers-to-Arrays-with-Qualifiers-Work-as-Expected" href="Pointers-to-Arrays.html">6.26 指向具有限定符的数组的指针按预期工作 </a></li>
+    <li><a id="toc-Non_002dConstant-Initializers" href="Initializers.html">6.27 非常量初始值设定项 </a></li>
+    <li><a id="toc-Compound-Literals-1" href="Compound-Literals.html">6.28 复合文字 </a></li>
+    <li><a id="toc-Designated-Initializers" href="Designated-Inits.html">6.29 指定初始值设定项 </a></li>
+    <li><a id="toc-Case-Ranges-1" href="Case-Ranges.html">6.30 案例范围 </a></li>
+    <li><a id="toc-Cast-to-a-Union-Type" href="Cast-to-Union.html">6.31 强制转换为联合类型 </a></li>
+    <li><a id="toc-Mixed-Declarations_002c-Labels-and-Code" href="Mixed-Labels-and-Declarations.html">6.32 混合声明、标签和代码 </a></li>
+    <li><a id="toc-Declaring-Attributes-of-Functions" href="Function-Attributes.html">6.33 声明函数的属性 </a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-Common-Function-Attributes-1" href="Common-Function-Attributes.html">6.33.1 常用函数属性 </a></li>
+      <li><a id="toc-AArch64-Function-Attributes-1" href="AArch64-Function-Attributes.html">6.33.2 AArch64 函数属性 </a>
+      <ul class="toc-numbered-mark">
+        <li><a id="toc-Inlining-rules" href="AArch64-Function-Attributes.html#Inlining-rules">6.33.2.1 内联规则 </a></li>
+      </ul></li>
+      <li><a id="toc-AMD-GCN-Function-Attributes-1" href="AMD-GCN-Function-Attributes.html">6.33.3 AMD GCN 函数属性 </a></li>
+      <li><a id="toc-ARC-Function-Attributes-1" href="ARC-Function-Attributes.html">6.33.4 ARC 函数属性 </a></li>
+      <li><a id="toc-ARM-Function-Attributes-1" href="ARM-Function-Attributes.html">6.33.5 ARM 函数属性 </a></li>
+      <li><a id="toc-AVR-Function-Attributes-1" href="AVR-Function-Attributes.html">6.33.6 AVR 函数属性 </a></li>
+      <li><a id="toc-Blackfin-Function-Attributes-1" href="Blackfin-Function-Attributes.html">6.33.7 Blackfin函数属性 </a></li>
+      <li><a id="toc-BPF-Function-Attributes-1" href="BPF-Function-Attributes.html">6.33.8 BPF 函数属性 </a></li>
+      <li><a id="toc-C_002dSKY-Function-Attributes-1" href="C_002dSKY-Function-Attributes.html">6.33.9 C-SKY函数属性 </a></li>
+      <li><a id="toc-Epiphany-Function-Attributes-1" href="Epiphany-Function-Attributes.html">6.33.10 顿悟函数属性 </a></li>
+      <li><a id="toc-H8_002f300-Function-Attributes-1" href="H8_002f300-Function-Attributes.html">6.33.11 H8/300 函数属性 </a></li>
+      <li><a id="toc-IA_002d64-Function-Attributes-1" href="IA_002d64-Function-Attributes.html">6.33.12 IA-64 函数属性 </a></li>
+      <li><a id="toc-M32C-Function-Attributes-1" href="M32C-Function-Attributes.html">6.33.13 M32C函数属性 </a></li>
+      <li><a id="toc-M32R_002fD-Function-Attributes-1" href="M32R_002fD-Function-Attributes.html">6.33.14 M32R/D 功能属性 </a></li>
+      <li><a id="toc-m68k-Function-Attributes-1" href="m68k-Function-Attributes.html">6.33.15 m68k 函数属性 </a></li>
+      <li><a id="toc-MCORE-Function-Attributes-1" href="MCORE-Function-Attributes.html">6.33.16 MCORE 函数属性 </a></li>
+      <li><a id="toc-MicroBlaze-Function-Attributes-1" href="MicroBlaze-Function-Attributes.html">6.33.17 MicroBlaze 函数属性 </a></li>
+      <li><a id="toc-Microsoft-Windows-Function-Attributes-1" href="Microsoft-Windows-Function-Attributes.html">6.33.18 Microsoft Windows 函数属性 </a></li>
+      <li><a id="toc-MIPS-Function-Attributes-1" href="MIPS-Function-Attributes.html">6.33.19 MIPS函数属性 </a></li>
+      <li><a id="toc-MSP430-Function-Attributes-1" href="MSP430-Function-Attributes.html">6.33.20 MSP430 功能属性 </a></li>
+      <li><a id="toc-NDS32-Function-Attributes-1" href="NDS32-Function-Attributes.html">6.33.21 NDS32 函数属性 </a></li>
+      <li><a id="toc-Nios-II-Function-Attributes-1" href="Nios-II-Function-Attributes.html">6.33.22 Nios II 函数属性 </a></li>
+      <li><a id="toc-Nvidia-PTX-Function-Attributes-1" href="Nvidia-PTX-Function-Attributes.html">6.33.23 Nvidia PTX 函数属性 </a></li>
+      <li><a id="toc-PowerPC-Function-Attributes-1" href="PowerPC-Function-Attributes.html">6.33.24 PowerPC功能属性 </a></li>
+      <li><a id="toc-RISC_002dV-Function-Attributes-1" href="RISC_002dV-Function-Attributes.html">6.33.25 RISC-V函数属性 </a></li>
+      <li><a id="toc-RL78-Function-Attributes-1" href="RL78-Function-Attributes.html">6.33.26 RL78 函数属性 </a></li>
+      <li><a id="toc-RX-Function-Attributes-1" href="RX-Function-Attributes.html">6.33.27 RX函数属性 </a></li>
+      <li><a id="toc-S_002f390-Function-Attributes-1" href="S_002f390-Function-Attributes.html">6.33.28 S/390 函数属性 </a></li>
+      <li><a id="toc-SH-Function-Attributes-1" href="SH-Function-Attributes.html">6.33.29 SH 函数属性 </a></li>
+      <li><a id="toc-Symbian-OS-Function-Attributes-1" href="Symbian-OS-Function-Attributes.html">6.33.30 Symbian OS 函数属性 </a></li>
+      <li><a id="toc-V850-Function-Attributes-1" href="V850-Function-Attributes.html">6.33.31 V850 函数属性 </a></li>
+      <li><a id="toc-Visium-Function-Attributes-1" href="Visium-Function-Attributes.html">6.33.32 Visium 函数属性 </a></li>
+      <li><a id="toc-x86-Function-Attributes-1" href="x86-Function-Attributes.html">6.33.33 x86 函数属性 </a></li>
+      <li><a id="toc-Xstormy16-Function-Attributes-1" href="Xstormy16-Function-Attributes.html">6.33.34 Xstormy16 函数属性 </a></li>
+    </ul></li>
+    <li><a id="toc-Specifying-Attributes-of-Variables" href="Variable-Attributes.html">6.34 指定变量的属性 </a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-Common-Variable-Attributes-1" href="Common-Variable-Attributes.html">6.34.1 公共变量属性 </a></li>
+      <li><a id="toc-ARC-Variable-Attributes-1" href="ARC-Variable-Attributes.html">6.34.2 ARC 变量属性 </a></li>
+      <li><a id="toc-AVR-Variable-Attributes-1" href="AVR-Variable-Attributes.html">6.34.3 AVR 变量属性 </a></li>
+      <li><a id="toc-Blackfin-Variable-Attributes-1" href="Blackfin-Variable-Attributes.html">6.34.4 Blackfin变量属性 </a></li>
+      <li><a id="toc-H8_002f300-Variable-Attributes-1" href="H8_002f300-Variable-Attributes.html">6.34.5 H8/300 变量属性 </a></li>
+      <li><a id="toc-IA_002d64-Variable-Attributes-1" href="IA_002d64-Variable-Attributes.html">6.34.6 IA-64 变量属性 </a></li>
+      <li><a id="toc-LoongArch-Variable-Attributes-1" href="LoongArch-Variable-Attributes.html">6.34.7 LoongArch 变量属性 </a></li>
+      <li><a id="toc-M32R_002fD-Variable-Attributes-1" href="M32R_002fD-Variable-Attributes.html">6.34.8 M32R/D 变量属性 </a></li>
+      <li><a id="toc-Microsoft-Windows-Variable-Attributes-1" href="Microsoft-Windows-Variable-Attributes.html">6.34.9 Microsoft Windows 变量属性 </a></li>
+      <li><a id="toc-MSP430-Variable-Attributes-1" href="MSP430-Variable-Attributes.html">6.34.10 MSP430 变量属性 </a></li>
+      <li><a id="toc-Nvidia-PTX-Variable-Attributes-1" href="Nvidia-PTX-Variable-Attributes.html">6.34.11 Nvidia PTX 变量属性 </a></li>
+      <li><a id="toc-PowerPC-Variable-Attributes-1" href="PowerPC-Variable-Attributes.html">6.34.12 PowerPC 变量属性 </a></li>
+      <li><a id="toc-RL78-Variable-Attributes-1" href="RL78-Variable-Attributes.html">6.34.13 RL78 变量属性 </a></li>
+      <li><a id="toc-V850-Variable-Attributes-1" href="V850-Variable-Attributes.html">6.34.14 V850变量属性 </a></li>
+      <li><a id="toc-x86-Variable-Attributes-1" href="x86-Variable-Attributes.html">6.34.15 x86 变量属性 </a></li>
+      <li><a id="toc-Xstormy16-Variable-Attributes-1" href="Xstormy16-Variable-Attributes.html">6.34.16 Xstormy16 变量属性 </a></li>
+    </ul></li>
+    <li><a id="toc-Specifying-Attributes-of-Types" href="Type-Attributes.html">6.35 指定类型的属性 </a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-Common-Type-Attributes-1" href="Common-Type-Attributes.html">6.35.1 通用类型属性 </a></li>
+      <li><a id="toc-ARC-Type-Attributes-1" href="ARC-Type-Attributes.html">6.35.2 ARC 类型属性 </a></li>
+      <li><a id="toc-ARM-Type-Attributes-1" href="ARM-Type-Attributes.html">6.35.3 ARM 类型属性 </a></li>
+      <li><a id="toc-BPF-Type-Attributes-1" href="BPF-Type-Attributes.html">6.35.4 BPF 类型属性 </a></li>
+      <li><a id="toc-PowerPC-Type-Attributes-1" href="PowerPC-Type-Attributes.html">6.35.5 PowerPC 类型属性 </a></li>
+      <li><a id="toc-x86-Type-Attributes-1" href="x86-Type-Attributes.html">6.35.6 x86 类型属性 </a></li>
+    </ul></li>
+    <li><a id="toc-Label-Attributes-1" href="Label-Attributes.html">6.36 标签属性 </a></li>
+    <li><a id="toc-Enumerator-Attributes-1" href="Enumerator-Attributes.html">6.37 枚举器属性 </a></li>
+    <li><a id="toc-Statement-Attributes-1" href="Statement-Attributes.html">6.38 语句属性 </a></li>
+    <li><a id="toc-Attribute-Syntax-1" href="Attribute-Syntax.html">6.39 属性语法 </a></li>
+    <li><a id="toc-Prototypes-and-Old_002dStyle-Function-Definitions" href="Function-Prototypes.html">6.40 原型和旧式函数定义 </a></li>
+    <li><a id="toc-C_002b_002b-Style-Comments" href="C_002b_002b-Comments.html">6.41 C++ 风格评论 </a></li>
+    <li><a id="toc-Dollar-Signs-in-Identifier-Names" href="Dollar-Signs.html">6.42 标识符名称中的美元符号 </a></li>
+    <li><a id="toc-The-Character-ESC-in-Constants" href="Character-Escapes.html">6.43 角色  <kbd class="key">ESC</kbd> 在常量中 </a></li>
+    <li><a id="toc-Determining-the-Alignment-of-Functions_002c-Types-or-Variables" href="Alignment.html">6.44 确定函数、类型或变量的对齐方式 </a></li>
+    <li><a id="toc-An-Inline-Function-is-As-Fast-As-a-Macro" href="Inline.html">6.45 内联函数与宏一样快 </a></li>
+    <li><a id="toc-When-is-a-Volatile-Object-Accessed_003f" href="Volatiles.html">6.46 何时访问易失性对象？ </a></li>
+    <li><a id="toc-How-to-Use-Inline-Assembly-Language-in-C-Code" href="Using-Assembly-Language-with-C.html">6.47 如何在 C 代码中使用内联汇编语言 </a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-Basic-Asm-_002d_002d_002d-Assembler-Instructions-Without-Operands" href="Basic-Asm.html">6.47.1 基本 Asm — 不带操作数的汇编程序指令 </a></li>
+      <li><a id="toc-Extended-Asm-_002d-Assembler-Instructions-with-C-Expression-Operands" href="Extended-Asm.html">6.47.2 扩展 Asm - 带有 C 表达式操作数的汇编程序指令 </a>
+      <ul class="toc-numbered-mark">
+        <li><a id="toc-Volatile-1" href="Extended-Asm.html#Volatile-1">6.47.2.1 易失性 </a></li>
+        <li><a id="toc-Assembler-Template" href="Extended-Asm.html#Assembler-Template">6.47.2.2 汇编程序模板 </a></li>
+        <li><a id="toc-Output-Operands" href="Extended-Asm.html#Output-Operands">6.47.2.3 输出操作数 </a></li>
+        <li><a id="toc-Flag-Output-Operands" href="Extended-Asm.html#Flag-Output-Operands">6.47.2.4 标记输出操作数 </a></li>
+        <li><a id="toc-Input-Operands" href="Extended-Asm.html#Input-Operands">6.47.2.5 输入操作数 </a></li>
+        <li><a id="toc-Clobbers-and-Scratch-Registers-1" href="Extended-Asm.html#Clobbers-and-Scratch-Registers-1">6.47.2.6 Clobbers 和 Scratch 寄存器 </a></li>
+        <li><a id="toc-Goto-Labels" href="Extended-Asm.html#Goto-Labels">6.47.2.7 转到标签 </a></li>
+        <li><a id="toc-Generic-Operand-Modifiers" href="Extended-Asm.html#Generic-Operand-Modifiers">6.47.2.8 通用操作数修饰符 </a></li>
+        <li><a id="toc-x86-Operand-Modifiers" href="Extended-Asm.html#x86-Operand-Modifiers">6.47.2.9 x86操作数修饰符 </a></li>
+        <li><a id="toc-x86-Floating_002dPoint-asm-Operands" href="Extended-Asm.html#x86-Floating_002dPoint-asm-Operands">6.47.2.10 x86浮点  <code class="code">asm</code> 操作 </a></li>
+        <li><a id="toc-MSP430-Operand-Modifiers" href="Extended-Asm.html#MSP430-Operand-Modifiers">6.47.2.11 MSP430 操作数修改器 </a></li>
+        <li><a id="toc-LoongArch-Operand-Modifiers" href="Extended-Asm.html#LoongArch-Operand-Modifiers">6.47.2.12 LoongArch 操作数修饰符 </a></li>
+      </ul></li>
+      <li><a id="toc-Constraints-for-asm-Operands" href="Constraints.html">6.47.3 约束  <code class="code">asm</code> 操作 </a>
+      <ul class="toc-numbered-mark">
+        <li><a id="toc-Simple-Constraints-1" href="Simple-Constraints.html">6.47.3.1 简单约束 </a></li>
+        <li><a id="toc-Multiple-Alternative-Constraints" href="Multi_002dAlternative.html">6.47.3.2 多个替代约束 </a></li>
+        <li><a id="toc-Constraint-Modifier-Characters" href="Modifiers.html">6.47.3.3 约束修饰符字符 </a></li>
+        <li><a id="toc-Constraints-for-Particular-Machines" href="Machine-Constraints.html">6.47.3.4 特定机器的约束 </a></li>
+      </ul></li>
+      <li><a id="toc-Controlling-Names-Used-in-Assembler-Code" href="Asm-Labels.html">6.47.4 控制汇编程序代码中使用的名称 </a></li>
+      <li><a id="toc-Variables-in-Specified-Registers" href="Explicit-Register-Variables.html">6.47.5 指定寄存器中的变量 </a>
+      <ul class="toc-numbered-mark">
+        <li><a id="toc-Defining-Global-Register-Variables" href="Global-Register-Variables.html">6.47.5.1 定义全局寄存器变量 </a></li>
+        <li><a id="toc-Specifying-Registers-for-Local-Variables" href="Local-Register-Variables.html">6.47.5.2 指定局部变量的寄存器 </a></li>
+      </ul></li>
+      <li><a id="toc-Size-of-an-asm-1" href="Size-of-an-asm.html">6.47.6 大小  <code class="code">asm</code></a></li>
+    </ul></li>
+    <li><a id="toc-Alternate-Keywords-1" href="Alternate-Keywords.html">6.48 替代关键词 </a></li>
+    <li><a id="toc-Incomplete-enum-Types" href="Incomplete-Enums.html">6.49 不完整  <code class="code">enum</code> 类型 </a></li>
+    <li><a id="toc-Function-Names-as-Strings" href="Function-Names.html">6.50 字符串形式的函数名称 </a></li>
+    <li><a id="toc-Getting-the-Return-or-Frame-Address-of-a-Function" href="Return-Address.html">6.51 获取函数的返回地址或帧地址 </a></li>
+    <li><a id="toc-Using-Vector-Instructions-through-Built_002din-Functions" href="Vector-Extensions.html">6.52 通过内置函数使用向量指令 </a></li>
+    <li><a id="toc-Support-for-offsetof" href="Offsetof.html">6.53 支持  <code class="code">offsetof</code></a></li>
+    <li><a id="toc-Legacy-_005f_005fsync-Built_002din-Functions-for-Atomic-Memory-Access" href="_005f_005fsync-Builtins.html">6.54 遗产  <code class="code">__sync</code> 用于原子内存访问的内置函数 </a></li>
+    <li><a id="toc-Built_002din-Functions-for-Memory-Model-Aware-Atomic-Operations" href="_005f_005fatomic-Builtins.html">6.55 内存模型感知原子操作的内置函数 </a></li>
+    <li><a id="toc-Built_002din-Functions-to-Perform-Arithmetic-with-Overflow-Checking" href="Integer-Overflow-Builtins.html">6.56 通过溢出检查执行算术的内置函数 </a></li>
+    <li><a id="toc-x86_002dSpecific-Memory-Model-Extensions-for-Transactional-Memory" href="x86-specific-memory-model-extensions-for-transactional-memory.html">6.57 特定于 x86 的事务内存模型扩展 </a></li>
+    <li><a id="toc-Object-Size-Checking-1" href="Object-Size-Checking.html">6.58 对象大小检查 </a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-Object-Size-Checking-Built_002din-Functions" href="Object-Size-Checking.html#Object-Size-Checking-Built_002din-Functions">6.58.1 对象大小检查内置函数 </a></li>
+      <li><a id="toc-Object-Size-Checking-and-Source-Fortification" href="Object-Size-Checking.html#Object-Size-Checking-and-Source-Fortification">6.58.2 物体尺寸检查和源强化 </a>
+      <ul class="toc-numbered-mark">
+        <li><a id="toc-Formatted-Output-Function-Checking" href="Object-Size-Checking.html#Formatted-Output-Function-Checking">6.58.2.1 格式化输出函数检查 </a></li>
+      </ul></li>
+    </ul></li>
+    <li><a id="toc-Other-Built_002din-Functions-Provided-by-GCC" href="Other-Builtins.html">6.59 GCC提供的其他内置功能 </a></li>
+    <li><a id="toc-Built_002din-Functions-Specific-to-Particular-Target-Machines" href="Target-Builtins.html">6.60 特定于特定目标计算机的内置函数 </a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-AArch64-Built_002din-Functions-1" href="AArch64-Built_002din-Functions.html">6.60.1 AArch64内置函数 </a></li>
+      <li><a id="toc-Alpha-Built_002din-Functions-1" href="Alpha-Built_002din-Functions.html">6.60.2 Alpha 内置函数 </a></li>
+      <li><a id="toc-Altera-Nios-II-Built_002din-Functions-1" href="Altera-Nios-II-Built_002din-Functions.html">6.60.3 Altera Nios II 内置函数 </a></li>
+      <li><a id="toc-ARC-Built_002din-Functions-1" href="ARC-Built_002din-Functions.html">6.60.4 ARC 内置函数 </a></li>
+      <li><a id="toc-ARC-SIMD-Built_002din-Functions-1" href="ARC-SIMD-Built_002din-Functions.html">6.60.5 ARC SIMD 内置函数 </a></li>
+      <li><a id="toc-ARM-iWMMXt-Built_002din-Functions-1" href="ARM-iWMMXt-Built_002din-Functions.html">6.60.6 ARM iWMMXt 内置函数 </a></li>
+      <li><a id="toc-ARM-C-Language-Extensions-_0028ACLE_0029-1" href="ARM-C-Language-Extensions-_0028ACLE_0029.html">6.60.7 ARM C 语言扩展 （ACLE） </a></li>
+      <li><a id="toc-ARM-Floating-Point-Status-and-Control-Intrinsics-1" href="ARM-Floating-Point-Status-and-Control-Intrinsics.html">6.60.8 ARM 浮点状态和控制内部函数 </a></li>
+      <li><a id="toc-ARM-ARMv8_002dM-Security-Extensions-1" href="ARM-ARMv8_002dM-Security-Extensions.html">6.60.9 ARM ARMv8-M 安全扩展 </a></li>
+      <li><a id="toc-AVR-Built_002din-Functions-1" href="AVR-Built_002din-Functions.html">6.60.10 AVR 内置函数 </a></li>
+      <li><a id="toc-Blackfin-Built_002din-Functions-1" href="Blackfin-Built_002din-Functions.html">6.60.11 Blackfin内置函数 </a></li>
+      <li><a id="toc-BPF-Built_002din-Functions-1" href="BPF-Built_002din-Functions.html">6.60.12 BPF 内置函数 </a></li>
+      <li><a id="toc-FR_002dV-Built_002din-Functions-1" href="FR_002dV-Built_002din-Functions.html">6.60.13 FR-V 内置函数 </a>
+      <ul class="toc-numbered-mark">
+        <li><a id="toc-Argument-Types-1" href="Argument-Types.html">6.60.13.1 参数类型 </a></li>
+        <li><a id="toc-Directly_002dMapped-Integer-Functions" href="Directly_002dmapped-Integer-Functions.html">6.60.13.2 直接映射整数函数 </a></li>
+        <li><a id="toc-Directly_002dMapped-Media-Functions" href="Directly_002dmapped-Media-Functions.html">6.60.13.3 直接映射的媒体函数 </a></li>
+        <li><a id="toc-Raw-Read_002fWrite-Functions" href="Raw-read_002fwrite-Functions.html">6.60.13.4 原始读/写函数 </a></li>
+        <li><a id="toc-Other-Built_002din-Functions-1" href="Other-Built_002din-Functions.html">6.60.13.5 其他内置函数 </a></li>
+      </ul></li>
+      <li><a id="toc-LoongArch-Base-Built_002din-Functions-1" href="LoongArch-Base-Built_002din-Functions.html">6.60.14 LoongArch Base 内置函数 </a></li>
+      <li><a id="toc-MIPS-DSP-Built_002din-Functions-1" href="MIPS-DSP-Built_002din-Functions.html">6.60.15 MIPS DSP内置函数 </a></li>
+      <li><a id="toc-MIPS-Paired_002dSingle-Support-1" href="MIPS-Paired_002dSingle-Support.html">6.60.16 MIPS双通道-单通道支持 </a></li>
+      <li><a id="toc-MIPS-Loongson-Built_002din-Functions-1" href="MIPS-Loongson-Built_002din-Functions.html">6.60.17 MIPS 龙芯内置函数 </a>
+      <ul class="toc-numbered-mark">
+        <li><a id="toc-Paired_002dSingle-Arithmetic-1" href="Paired_002dSingle-Arithmetic.html">6.60.17.1 配对单算术 </a></li>
+        <li><a id="toc-Paired_002dSingle-Built_002din-Functions-1" href="Paired_002dSingle-Built_002din-Functions.html">6.60.17.2 配对单内置函数 </a></li>
+        <li><a id="toc-MIPS_002d3D-Built_002din-Functions-1" href="MIPS_002d3D-Built_002din-Functions.html">6.60.17.3 MIPS-3D内置函数 </a></li>
+      </ul></li>
+      <li><a id="toc-MIPS-SIMD-Architecture-_0028MSA_0029-Support-1" href="MIPS-SIMD-Architecture-_0028MSA_0029-Support.html">6.60.18 MIPS SIMD 架构 （MSA） 支持 </a>
+      <ul class="toc-numbered-mark">
+        <li><a id="toc-MIPS-SIMD-Architecture-Built_002din-Functions-1" href="MIPS-SIMD-Architecture-Built_002din-Functions.html">6.60.18.1 MIPS SIMD架构内置函数 </a></li>
+      </ul></li>
+      <li><a id="toc-Other-MIPS-Built_002din-Functions-1" href="Other-MIPS-Built_002din-Functions.html">6.60.19 其他MIPS内置函数 </a></li>
+      <li><a id="toc-MSP430-Built_002din-Functions-1" href="MSP430-Built_002din-Functions.html">6.60.20 MSP430 内置函数 </a></li>
+      <li><a id="toc-NDS32-Built_002din-Functions-1" href="NDS32-Built_002din-Functions.html">6.60.21 NDS32内置函数 </a></li>
+      <li><a id="toc-Basic-PowerPC-Built_002din-Functions-1" href="Basic-PowerPC-Built_002din-Functions.html">6.60.22 基本 PowerPC 内置函数 </a>
+      <ul class="toc-numbered-mark">
+        <li><a id="toc-Basic-PowerPC-Built_002din-Functions-Available-on-all-Configurations-1" href="Basic-PowerPC-Built_002din-Functions-Available-on-all-Configurations.html">6.60.22.1 所有配置都提供的基本 PowerPC 内置功能 </a></li>
+        <li><a id="toc-Basic-PowerPC-Built_002din-Functions-Available-on-ISA-2_002e05-1" href="Basic-PowerPC-Built_002din-Functions-Available-on-ISA-2_002e05.html">6.60.22.2 ISA 2.05 上提供的基本 PowerPC 内置功能 </a></li>
+        <li><a id="toc-Basic-PowerPC-Built_002din-Functions-Available-on-ISA-2_002e06-1" href="Basic-PowerPC-Built_002din-Functions-Available-on-ISA-2_002e06.html">6.60.22.3 ISA 2.06 上提供的基本 PowerPC 内置功能 </a></li>
+        <li><a id="toc-Basic-PowerPC-Built_002din-Functions-Available-on-ISA-2_002e07-1" href="Basic-PowerPC-Built_002din-Functions-Available-on-ISA-2_002e07.html">6.60.22.4 ISA 2.07 上提供的基本 PowerPC 内置功能 </a></li>
+        <li><a id="toc-Basic-PowerPC-Built_002din-Functions-Available-on-ISA-3_002e0-1" href="Basic-PowerPC-Built_002din-Functions-Available-on-ISA-3_002e0.html">6.60.22.5 ISA 3.0 上提供的基本 PowerPC 内置功能 </a></li>
+        <li><a id="toc-Basic-PowerPC-Built_002din-Functions-Available-on-ISA-3_002e1-1" href="Basic-PowerPC-Built_002din-Functions-Available-on-ISA-3_002e1.html">6.60.22.6 ISA 3.1 上提供的基本 PowerPC 内置功能 </a></li>
+      </ul></li>
+      <li><a id="toc-PowerPC-AltiVec_002fVSX-Built_002din-Functions-1" href="PowerPC-AltiVec_002fVSX-Built_002din-Functions.html">6.60.23 PowerPC AltiVec/VSX 内置函数 </a>
+      <ul class="toc-numbered-mark">
+        <li><a id="toc-PowerPC-AltiVec-Built_002din-Functions-on-ISA-2_002e05-1" href="PowerPC-AltiVec-Built_002din-Functions-on-ISA-2_002e05.html">6.60.23.1 ISA 2.05 上的 PowerPC AltiVec 内置函数 </a></li>
+        <li><a id="toc-PowerPC-AltiVec-Built_002din-Functions-Available-on-ISA-2_002e06-1" href="PowerPC-AltiVec-Built_002din-Functions-Available-on-ISA-2_002e06.html">6.60.23.2 ISA 2.06 上提供的 PowerPC AltiVec 内置功能 </a></li>
+        <li><a id="toc-PowerPC-AltiVec-Built_002din-Functions-Available-on-ISA-2_002e07-1" href="PowerPC-AltiVec-Built_002din-Functions-Available-on-ISA-2_002e07.html">6.60.23.3 ISA 2.07 上提供的 PowerPC AltiVec 内置功能 </a></li>
+        <li><a id="toc-PowerPC-AltiVec-Built_002din-Functions-Available-on-ISA-3_002e0-1" href="PowerPC-AltiVec-Built_002din-Functions-Available-on-ISA-3_002e0.html">6.60.23.4 PowerPC AltiVec内置功能在ISA 3.0上可用 </a></li>
+        <li><a id="toc-PowerPC-AltiVec-Built_002din-Functions-Available-on-ISA-3_002e1-1" href="PowerPC-AltiVec-Built_002din-Functions-Available-on-ISA-3_002e1.html">6.60.23.5 ISA 3.1 上提供的 PowerPC AltiVec 内置功能 </a></li>
+      </ul></li>
+      <li><a id="toc-PowerPC-Hardware-Transactional-Memory-Built_002din-Functions-1" href="PowerPC-Hardware-Transactional-Memory-Built_002din-Functions.html">6.60.24 PowerPC 硬件事务内存内置函数 </a>
+      <ul class="toc-numbered-mark">
+        <li><a id="toc-PowerPC-HTM-Low-Level-Built_002din-Functions" href="PowerPC-Hardware-Transactional-Memory-Built_002din-Functions.html#PowerPC-HTM-Low-Level-Built_002din-Functions">6.60.24.1 PowerPC HTM 低级内置函数 </a></li>
+        <li><a id="toc-PowerPC-HTM-High-Level-Inline-Functions" href="PowerPC-Hardware-Transactional-Memory-Built_002din-Functions.html#PowerPC-HTM-High-Level-Inline-Functions">6.60.24.2 PowerPC HTM 高级内联函数 </a></li>
+      </ul></li>
+      <li><a id="toc-PowerPC-Atomic-Memory-Operation-Functions-1" href="PowerPC-Atomic-Memory-Operation-Functions.html">6.60.25 PowerPC原子存储器操作功能 </a></li>
+      <li><a id="toc-PowerPC-Matrix_002dMultiply-Assist-Built_002din-Functions-1" href="PowerPC-Matrix_002dMultiply-Assist-Built_002din-Functions.html">6.60.26 PowerPC 矩阵乘法辅助内置函数 </a></li>
+      <li><a id="toc-PRU-Built_002din-Functions-1" href="PRU-Built_002din-Functions.html">6.60.27 PRU 内置函数 </a></li>
+      <li><a id="toc-RISC_002dV-Built_002din-Functions-1" href="RISC_002dV-Built_002din-Functions.html">6.60.28 RISC-V内置函数 </a></li>
+      <li><a id="toc-RISC_002dV-Vector-Intrinsics-1" href="RISC_002dV-Vector-Intrinsics.html">6.60.29 RISC-V矢量内部函数 </a></li>
+      <li><a id="toc-RX-Built_002din-Functions-1" href="RX-Built_002din-Functions.html">6.60.30 RX内置函数 </a></li>
+      <li><a id="toc-S_002f390-System-z-Built_002din-Functions-1" href="S_002f390-System-z-Built_002din-Functions.html">6.60.31 S/390 System z 内置函数 </a></li>
+      <li><a id="toc-SH-Built_002din-Functions-1" href="SH-Built_002din-Functions.html">6.60.32 SH 内置函数 </a></li>
+      <li><a id="toc-SPARC-VIS-Built_002din-Functions-1" href="SPARC-VIS-Built_002din-Functions.html">6.60.33 SPARC VIS 内置函数 </a></li>
+      <li><a id="toc-TI-C6X-Built_002din-Functions-1" href="TI-C6X-Built_002din-Functions.html">6.60.34 TI C6X 内置函数 </a></li>
+      <li><a id="toc-x86-Built_002din-Functions-1" href="x86-Built_002din-Functions.html">6.60.35 x86 内置函数 </a></li>
+      <li><a id="toc-x86-Transactional-Memory-Intrinsics" href="x86-transactional-memory-intrinsics.html">6.60.36 x86 事务性内存内部函数 </a></li>
+      <li><a id="toc-x86-Control_002dFlow-Protection-Intrinsics" href="x86-control_002dflow-protection-intrinsics.html">6.60.37 x86控制流保护内部函数 </a></li>
+    </ul></li>
+    <li><a id="toc-Format-Checks-Specific-to-Particular-Target-Machines" href="Target-Format-Checks.html">6.61 特定于特定目标计算机的格式检查 </a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-Solaris-Format-Checks-1" href="Solaris-Format-Checks.html">6.61.1 Solaris 格式检查 </a></li>
+      <li><a id="toc-Darwin-Format-Checks-1" href="Darwin-Format-Checks.html">6.61.2 Darwin 格式检查 </a></li>
+    </ul></li>
+    <li><a id="toc-Pragmas-Accepted-by-GCC" href="Pragmas.html">6.62 GCC接受的编译指示 </a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-AArch64-Pragmas-1" href="AArch64-Pragmas.html">6.62.1 Arch64 编译指示 </a></li>
+      <li><a id="toc-ARM-Pragmas-1" href="ARM-Pragmas.html">6.62.2 ARM 编译指示 </a></li>
+      <li><a id="toc-M32C-Pragmas-1" href="M32C-Pragmas.html">6.62.3 M32C编译指示 </a></li>
+      <li><a id="toc-PRU-Pragmas-1" href="PRU-Pragmas.html">6.62.4 PRU 编译指示 </a></li>
+      <li><a id="toc-RS_002f6000-and-PowerPC-Pragmas-1" href="RS_002f6000-and-PowerPC-Pragmas.html">6.62.5 RS/6000 和 PowerPC 编译指示 </a></li>
+      <li><a id="toc-S_002f390-Pragmas-1" href="S_002f390-Pragmas.html">6.62.6 S/390 编译指示 </a></li>
+      <li><a id="toc-Darwin-Pragmas-1" href="Darwin-Pragmas.html">6.62.7 达尔文纲要 </a></li>
+      <li><a id="toc-Solaris-Pragmas-1" href="Solaris-Pragmas.html">6.62.8 Solaris 编译指示 </a></li>
+      <li><a id="toc-Symbol_002dRenaming-Pragmas-1" href="Symbol_002dRenaming-Pragmas.html">6.62.9 符号重命名编译指示 </a></li>
+      <li><a id="toc-Structure_002dLayout-Pragmas-1" href="Structure_002dLayout-Pragmas.html">6.62.10 结构布局编译指示 </a></li>
+      <li><a id="toc-Weak-Pragmas-1" href="Weak-Pragmas.html">6.62.11 弱语用 </a></li>
+      <li><a id="toc-Diagnostic-Pragmas-1" href="Diagnostic-Pragmas.html">6.62.12 诊断编译指示 </a></li>
+      <li><a id="toc-Visibility-Pragmas-1" href="Visibility-Pragmas.html">6.62.13 可见性编译指示 </a></li>
+      <li><a id="toc-Push_002fPop-Macro-Pragmas-1" href="Push_002fPop-Macro-Pragmas.html">6.62.14 推/弹出宏编译 </a></li>
+      <li><a id="toc-Function-Specific-Option-Pragmas-1" href="Function-Specific-Option-Pragmas.html">6.62.15 特定于功能的选项编译指示 </a></li>
+      <li><a id="toc-Loop_002dSpecific-Pragmas-1" href="Loop_002dSpecific-Pragmas.html">6.62.16 特定于循环的编译指示 </a></li>
+    </ul></li>
+    <li><a id="toc-Unnamed-Structure-and-Union-Fields" href="Unnamed-Fields.html">6.63 未命名结构和联合字段 </a></li>
+    <li><a id="toc-Thread_002dLocal-Storage" href="Thread_002dLocal.html">6.64 线程本地存储 </a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-ISO_002fIEC-9899_003a1999-Edits-for-Thread_002dLocal-Storage" href="C99-Thread_002dLocal-Edits.html">6.64.1 ISO/IEC 9899：1999 线程本地存储的编辑 </a></li>
+      <li><a id="toc-ISO_002fIEC-14882_003a1998-Edits-for-Thread_002dLocal-Storage" href="C_002b_002b98-Thread_002dLocal-Edits.html">6.64.2 ISO/IEC 14882：1998 线程本地存储的编辑 </a></li>
+    </ul></li>
+    <li><a id="toc-Binary-Constants-using-the-0b-Prefix" href="Binary-constants.html">6.65 二进制常量使用 ' <samp class="samp">0b </samp>' 前缀 </a></li>
+  </ul></li>
+  <li><a id="toc-Extensions-to-the-C_002b_002b-Language" href="C_002b_002b-Extensions.html">7 C++ 语言的扩展 </a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-When-is-a-Volatile-C_002b_002b-Object-Accessed_003f" href="C_002b_002b-Volatiles.html">7.1 何时访问易失性 C++ 对象？ </a></li>
+    <li><a id="toc-Restricting-Pointer-Aliasing" href="Restricted-Pointers.html">7.2 限制指针混叠 </a></li>
+    <li><a id="toc-Vague-Linkage-1" href="Vague-Linkage.html">7.3 波联动 </a></li>
+    <li><a id="toc-C_002b_002b-Interface-and-Implementation-Pragmas" href="C_002b_002b-Interface.html">7.4 C++ 接口和实现编译指示 </a></li>
+    <li><a id="toc-Where_0027s-the-Template_003f" href="Template-Instantiation.html">7.5 模板在哪里？ </a></li>
+    <li><a id="toc-Extracting-the-Function-Pointer-from-a-Bound-Pointer-to-Member-Function" href="Bound-member-functions.html">7.6 从成员函数的绑定指针中提取函数指针 </a></li>
+    <li><a id="toc-C_002b_002b_002dSpecific-Variable_002c-Function_002c-and-Type-Attributes" href="C_002b_002b-Attributes.html">7.7 特定于 C++ 的变量、函数和类型属性 </a></li>
+    <li><a id="toc-Function-Multiversioning-1" href="Function-Multiversioning.html">7.8 函数多版本化 </a></li>
+    <li><a id="toc-Type-Traits-1" href="Type-Traits.html">7.9 类型特征 </a></li>
+    <li><a id="toc-C_002b_002b-Concepts-1" href="C_002b_002b-Concepts.html">7.10 C++ 概念 </a></li>
+    <li><a id="toc-Deprecated-Features-1" href="Deprecated-Features.html">7.11 已弃用的功能 </a></li>
+    <li><a id="toc-Backwards-Compatibility-1" href="Backwards-Compatibility.html">7.12 向后兼容 </a></li>
+  </ul></li>
+  <li><a id="toc-GNU-Objective_002dC-Features" href="Objective_002dC.html">8 GNU Objective-C 特性 </a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-GNU-Objective_002dC-Runtime-API" href="GNU-Objective_002dC-runtime-API.html">8.1 GNU Objective-C 运行时 API </a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-Modern-GNU-Objective_002dC-Runtime-API" href="Modern-GNU-Objective_002dC-runtime-API.html">8.1.1 现代 GNU Objective-C 运行时 API </a></li>
+      <li><a id="toc-Traditional-GNU-Objective_002dC-Runtime-API" href="Traditional-GNU-Objective_002dC-runtime-API.html">8.1.2 传统的 GNU Objective-C 运行时 API </a></li>
+    </ul></li>
+    <li><a id="toc-_002bload_003a-Executing-Code-before-main" href="Executing-code-before-main.html">8,2  <code class="code">+load</code>：在执行代码之前  <code class="code">main</code></a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-What-You-Can-and-Cannot-Do-in-_002bload" href="What-you-can-and-what-you-cannot-do-in-_002bload.html">8.2.1 你能做什么和不能做什么  <code class="code">+load</code></a></li>
+    </ul></li>
+    <li><a id="toc-Type-Encoding" href="Type-encoding.html">8.3 类型编码 </a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-Legacy-Type-Encoding" href="Legacy-type-encoding.html">8.3.1 传统类型编码 </a></li>
+      <li><a id="toc-_0040encode-1" href="_0040encode.html">8.3.2  <code class="code">@encode</code></a></li>
+      <li><a id="toc-Method-Signatures" href="Method-signatures.html">8.3.3 方法签名 </a></li>
+    </ul></li>
+    <li><a id="toc-Garbage-Collection-1" href="Garbage-Collection.html">8.4 垃圾回收 </a></li>
+    <li><a id="toc-Constant-String-Objects" href="Constant-string-objects.html">8.5 常量字符串对象 </a></li>
+    <li><a id="toc-compatibility_005falias-1" href="compatibility_005falias.html">8,6  <code class="code">compatibility_alias</code></a></li>
+    <li><a id="toc-Exceptions-1" href="Exceptions.html">8.7 例外情况 </a></li>
+    <li><a id="toc-Synchronization-1" href="Synchronization.html">8.8 同步 </a></li>
+    <li><a id="toc-Fast-Enumeration" href="Fast-enumeration.html">8.9 快速感知 </a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-Using-Fast-Enumeration" href="Using-fast-enumeration.html">8.9.1 使用快速枚举 </a></li>
+      <li><a id="toc-C99_002dLike-Fast-Enumeration-Syntax" href="c99_002dlike-fast-enumeration-syntax.html">8.9.2 类似 C99 的快速枚举语法 </a></li>
+      <li><a id="toc-Fast-Enumeration-Details" href="Fast-enumeration-details.html">8.9.3 快速枚举详细信息 </a></li>
+      <li><a id="toc-Fast-Enumeration-Protocol" href="Fast-enumeration-protocol.html">8.9.4 快速枚举协议 </a></li>
+    </ul></li>
+    <li><a id="toc-Messaging-with-the-GNU-Objective_002dC-Runtime" href="Messaging-with-the-GNU-Objective_002dC-runtime.html">8.10 使用 GNU Objective-C 运行时进行消息传递 </a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-Dynamically-Registering-Methods" href="Dynamically-registering-methods.html">8.10.1 动态注册方法 </a></li>
+      <li><a id="toc-Forwarding-Hook" href="Forwarding-hook.html">8.10.2 转发钩 </a></li>
+    </ul></li>
+  </ul></li>
+  <li><a id="toc-Binary-Compatibility" href="Compatibility.html">9 二进制兼容性 </a></li>
+  <li><a id="toc-gcov_002d_002d_002da-Test-Coverage-Program" href="Gcov.html">10  <code class="command">gcov</code>- 测试覆盖率计划 </a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-Introduction-to-gcov" href="Gcov-Intro.html">10.1 简介  <code class="command">gcov</code></a></li>
+    <li><a id="toc-Invoking-gcov" href="Invoking-Gcov.html">10.2 调用  <code class="command">gcov</code></a></li>
+    <li><a id="toc-Using-gcov-with-GCC-Optimization" href="Gcov-and-Optimization.html">10.3 使用  <code class="command">gcov</code> 使用 GCC 优化 </a></li>
+    <li><a id="toc-Brief-Description-of-gcov-Data-Files" href="Gcov-Data-Files.html">10.4 简要说明  <code class="command">gcov</code> 数据文件 </a></li>
+    <li><a id="toc-Data-File-Relocation-to-Support-Cross_002dProfiling" href="Cross_002dprofiling.html">10.5 数据文件重定位以支持交叉分析 </a></li>
+    <li><a id="toc-Profiling-and-Test-Coverage-in-Freestanding-Environments" href="Freestanding-Environments.html">10.6 独立环境中的分析和测试覆盖率 </a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-Overview" href="Freestanding-Environments.html#Overview">10.6.1 概述 </a></li>
+      <li><a id="toc-Tutorial" href="Freestanding-Environments.html#Tutorial">10.6.2 教程 </a></li>
+      <li><a id="toc-System-Initialization-Caveats" href="Freestanding-Environments.html#System-Initialization-Caveats">10.6.3 系统初始化注意事项 </a></li>
+    </ul></li>
+  </ul></li>
+  <li><a id="toc-gcov_002dtool_002d_002d_002dan-Offline-Gcda-Profile-Processing-Tool" href="Gcov_002dtool.html">11  <code class="command">gcov-tool</code>- 离线 Gcda 配置文件处理工具 </a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-Introduction-to-gcov_002dtool" href="Gcov_002dtool-Intro.html">11.1 简介  <code class="command">gcov-tool</code></a></li>
+    <li><a id="toc-Invoking-gcov_002dtool" href="Invoking-Gcov_002dtool.html">11.2 调用  <code class="command">gcov-tool</code></a></li>
+  </ul></li>
+  <li><a id="toc-gcov_002ddump_002d_002d_002dan-Offline-Gcda-and-Gcno-Profile-Dump-Tool" href="Gcov_002ddump.html">12  <code class="command">gcov-dump</code>- 脱机 gcda 和 gcno 配置文件转储工具 </a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-Introduction-to-gcov_002ddump" href="Gcov_002ddump-Intro.html">12.1 简介  <code class="command">gcov-dump</code></a></li>
+    <li><a id="toc-Invoking-gcov_002ddump" href="Invoking-Gcov_002ddump.html">12.2 调用  <code class="command">gcov-dump</code></a></li>
+  </ul></li>
+  <li><a id="toc-lto_002ddump_002d_002d_002dTool-for-dumping-LTO-object-files_002e" href="lto_002ddump.html">13  <code class="command">lto-dump</code>- 用于转储 LTO 对象文件的工具。 </a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-Introduction-to-lto_002ddump" href="lto_002ddump-Intro.html">13.1 简介  <code class="command">lto-dump</code></a></li>
+    <li><a id="toc-Invoking-lto_002ddump-1" href="Invoking-lto_002ddump.html">13.2 调用  <code class="command">lto-dump</code></a></li>
+  </ul></li>
+  <li><a id="toc-Known-Causes-of-Trouble-with-GCC" href="Trouble.html">GCC 问题的 14 个已知原因 </a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-Actual-Bugs-We-Haven_0027t-Fixed-Yet" href="Actual-Bugs.html">14.1 我们尚未修复的实际错误 </a></li>
+    <li><a id="toc-Interoperation-1" href="Interoperation.html">14.2 互操作 </a></li>
+    <li><a id="toc-Incompatibilities-of-GCC" href="Incompatibilities.html">14.3 GCC的不兼容性 </a></li>
+    <li><a id="toc-Fixed-Header-Files" href="Fixed-Headers.html">14.4 固定头文件 </a></li>
+    <li><a id="toc-Standard-Libraries-1" href="Standard-Libraries.html">14.5 标准库 </a></li>
+    <li><a id="toc-Disappointments-and-Misunderstandings" href="Disappointments.html">14.6 失望和误解 </a></li>
+    <li><a id="toc-Common-Misunderstandings-with-GNU-C_002b_002b" href="C_002b_002b-Misunderstandings.html">14.7 GNU C++ 的常见误解 </a>
+    <ul class="toc-numbered-mark">
+      <li><a id="toc-Declare-and-Define-Static-Members" href="Static-Definitions.html">14.7.1 声明 <em class="emph">和 </em>定义静态成员 </a></li>
+      <li><a id="toc-Name-Lookup_002c-Templates_002c-and-Accessing-Members-of-Base-Classes" href="Name-lookup.html">14.7.2 名称查找、模板和访问基类成员 </a></li>
+      <li><a id="toc-Temporaries-May-Vanish-Before-You-Expect" href="Temporaries.html">14.7.3 临时事件可能会在你预期之前消失 </a></li>
+      <li><a id="toc-Implicit-Copy_002dAssignment-for-Virtual-Bases" href="Copy-Assignment.html">14.7.4 虚拟碱基的隐式复制分配 </a></li>
+    </ul></li>
+    <li><a id="toc-Certain-Changes-We-Don_0027t-Want-to-Make" href="Non_002dbugs.html">14.8 我们不想进行的某些更改 </a></li>
+    <li><a id="toc-Warning-Messages-and-Error-Messages" href="Warnings-and-Errors.html">14.9 警告消息和错误消息 </a></li>
+  </ul></li>
+  <li><a id="toc-Reporting-Bugs" href="Bugs.html">15 报告错误 </a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-Have-You-Found-a-Bug_003f" href="Bug-Criteria.html">15.1 你发现错误了吗？ </a></li>
+    <li><a id="toc-How-and-Where-to-Report-Bugs" href="Bug-Reporting.html">15.2 如何以及在何处报告错误 </a></li>
+  </ul></li>
+  <li><a id="toc-How-To-Get-Help-with-GCC" href="Service.html">16 如何获得 GCC 的帮助 </a></li>
+  <li><a id="toc-Contributing-to-GCC-Development" href="Contributing.html">17 为海湾合作委员会的发展做出贡献 </a></li>
+  <li><a id="toc-Funding-Free-Software" href="Funding.html">资助自由软件 </a></li>
+  <li><a id="toc-The-GNU-Project-and-GNU_002fLinux" href="GNU-Project.html">GNU 工程和 GNU/Linux </a></li>
+  <li><a id="toc-GNU-General-Public-License" href="Copying.html">GNU 通用公共许可证 </a></li>
+  <li><a id="toc-GNU-Free-Documentation-License-1" href="GNU-Free-Documentation-License.html">GNU 自由文档许可证 </a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-ADDENDUM_003a-How-to-use-this-License-for-your-documents" href="GNU-Free-Documentation-License.html#ADDENDUM_003a-How-to-use-this-License-for-your-documents">附录：如何将本许可证用于您的文档 </a></li>
+  </ul></li>
+  <li><a id="toc-Contributors-to-GCC" href="Contributors.html">GCC 的贡献者 </a></li>
+  <li><a id="toc-Indices-1" href="Indices.html">附录 A 指数 </a>
+  <ul class="toc-numbered-mark">
+    <li><a id="toc-Option-Index-1" href="Option-Index.html" rel="index">A.1 期权指数 </a></li>
+    <li><a id="toc-Concept-and-Symbol-Index-1" href="Concept-and-Symbol-Index.html" rel="index">A.2 概念和符号索引 </a></li>
+  </ul></li>
+</ul>
+</div>
+</div>
+
+<div class="top-level-extent" id="Top">
+<div class="nav-panel">
+<p>
+下一篇：  <a href="G_002b_002b-and-GCC.html" accesskey="n" rel="next">GCC支持的编程语言 </a> [ <a href="#SEC_Contents" title="目录" rel="contents">内容 </a>][ <a href="Indices.html" title="指数" rel="index">索引 </a>] </p>
+</div>
+<hr>
+<h1 class="top" id="Introduction"><span>简介 <a class="copiable-link" href="#Introduction"> ¶ </a></span></h1>
+<a class="index-entry-id" id="index-introduction"></a>
+
+<p>本手册记录了如何使用 GNU 编译器，
+以及它们的特点和不兼容性，以及如何报告
+错误。 它对应于编译器
+（海湾合作委员会）
+版本 13.2.0。
+GNU 编译器的内部结构，包括如何将它们移植到新的
+目标和有关如何为新
+语言，记录在单独的手册中。 请参阅  <a data-manual="gccint" href="https://gcc.gnu.org/onlinedocs/gccint/index.html#Top">结构中的介绍 </a> in <cite class="cite">GNU 编译器集合 （GCC） 内部 </cite>。
+ </p>
+
+
+<ul class="mini-toc">
+<li><a href="G_002b_002b-and-GCC.html" accesskey="1">GCC 支持的编程语言 </a></li>
+<li><a href="Standards.html" accesskey="2">GCC 支持的语言标准 </a></li>
+<li><a href="Invoking-GCC.html" accesskey="3">GCC 命令选项 </a></li>
+<li><a href="C-Implementation.html" accesskey="4">C 实现定义的行为 </a></li>
+<li><a href="C_002b_002b-Implementation.html" accesskey="5">C++ 实现定义的行为 </a></li>
+<li><a href="C-Extensions.html" accesskey="6">C 语言系列的扩展 </a></li>
+<li><a href="C_002b_002b-Extensions.html" accesskey="7">C++ 语言的扩展 </a></li>
+<li><a href="Objective_002dC.html" accesskey="8">GNU Objective-C 特性 </a></li>
+<li><a href="Compatibility.html" accesskey="9">二进制兼容性 </a></li>
+<li><a href="Gcov.html"><code class="command">gcov</code>- 测试覆盖率计划 </a></li>
+<li><a href="Gcov_002dtool.html"><code class="command">gcov-tool</code>- 离线 Gcda 配置文件处理工具 </a></li>
+<li><a href="Gcov_002ddump.html"><code class="command">gcov-dump</code>- 脱机 gcda 和 gcno 配置文件转储工具 </a></li>
+<li><a href="lto_002ddump.html"><code class="command">lto-dump</code>- 用于转储 LTO 对象文件的工具。 </a></li>
+<li><a href="Trouble.html">GCC 问题的已知原因 </a></li>
+<li><a href="Bugs.html">报告错误 </a></li>
+<li><a href="Service.html">如何获得有关 GCC 的帮助 </a></li>
+<li><a href="Contributing.html">为海湾合作委员会的发展做贡献 </a></li>
+<li><a href="Funding.html">资助自由软件 </a></li>
+<li><a href="GNU-Project.html">GNU 工程和 GNU/Linux </a></li>
+<li><a href="Copying.html">GNU 通用公共许可证 </a></li>
+<li><a href="GNU-Free-Documentation-License.html">GNU 自由文档许可证 </a></li>
+<li><a href="Contributors.html">GCC 的贡献者 </a></li>
+<li><a href="Indices.html">指标 </a></li>
+</ul>
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+下一篇：  <a href="G_002b_002b-and-GCC.html" accesskey="n" rel="next">GCC支持的编程语言 </a> [ <a href="#SEC_Contents" title="目录" rel="contents">内容 </a>][ <a href="Indices.html" title="指数" rel="index">索引 </a>] </p>
+</div>
+
+
+
+
+
+</body>

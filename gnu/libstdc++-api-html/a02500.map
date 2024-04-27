@@ -1,0 +1,14 @@
+<map id="std::basic_fstream&lt; _CharT, _Traits &gt;" name="std::basic_fstream&lt; _CharT, _Traits &gt;">
+<area shape="rect" id="Node000001" title="Controlling input and output for files." alt="" coords="85,333,221,371"/>
+<area shape="rect" id="Node000002" href="$a02773.html" title="Template class basic_iostream." alt="" coords="84,248,223,285"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,301,156,333,151,333,151,301"/>
+<area shape="rect" id="Node000003" href="$a02765.html" title="Template class basic_istream." alt="" coords="5,163,141,200"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="103,210,138,246,134,249,99,213"/>
+<area shape="rect" id="Node000004" href="$a02757.html" title="Template class basic_ios, virtual base class for all stream classes." alt="" coords="73,77,234,115"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="127,128,93,164,89,160,124,124"/>
+<area shape="rect" id="Node000006" href="$a02769.html" title="Template class basic_ostream." alt="" coords="165,163,301,200"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="183,124,218,160,214,164,179,128"/>
+<area shape="rect" id="Node000005" href="$a05973.html" title="The base of the I/O class hierarchy." alt="" coords="104,5,203,29"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="156,45,156,77,151,77,151,45"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="207,213,173,249,169,246,204,210"/>
+</map>
